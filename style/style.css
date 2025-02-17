@@ -1,0 +1,11 @@
+.article-title {
+    width: 98;
+    position: relative;
+    font-size: 120px;
+    font-weight: 600;
+    font-family: Inter;
+    color: #000;
+    text-align: center;
+    display: inline-block;
+    }
+    
