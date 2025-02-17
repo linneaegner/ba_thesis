@@ -109,4 +109,250 @@
     object-fit: cover;
     }
     
+    .footer-child {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: #f1f1f1;
+        width: 1440px;
+        height: 564px;
+  }
+  .hypnosis-corporation-inc {
+        position: absolute;
+        top: 510px;
+        left: 130px;
+        color: #505050;
+  }
+  .terms-conditions {
+        position: absolute;
+        top: 510px;
+        left: 888px;
+        white-space: pre-wrap;
+        text-align: right;
+  }
+  .social-icons {
+        position: absolute;
+        top: 466px;
+        left: 1135px;
+        width: 175px;
+        height: 24px;
+  }
+  .hypnosis {
+        position: relative;
+        line-height: 24px;
+        font-weight: 600;
+  }
+  .tm {
+        position: relative;
+        font-size: 7px;
+        font-weight: 600;
+  }
+  .hypnosis-parent {
+        position: absolute;
+        top: 466px;
+        left: 130px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 24px;
+  }
+  .footer-item {
+        position: absolute;
+        top: 425.5px;
+        left: 129.5px;
+        border-top: 1px solid #000;
+        box-sizing: border-box;
+        width: 1181px;
+        height: 1px;
+  }
+  .africa {
+        margin: 0;
+  }
+  .africa-americas-asia-container {
+        position: absolute;
+        top: 38px;
+        left: 0px;
+        line-height: 32px;
+        display: inline-block;
+        width: 105px;
+  }
+  .world1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 62.5px;
+  }
+  .world {
+        flex: 1;
+        position: relative;
+        height: 294px;
+  }
+  .ukraine-europe-facts-container {
+        position: absolute;
+        top: 60px;
+        left: 0px;
+        line-height: 32px;
+        display: inline-block;
+        width: 105px;
+  }
+  .politics1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 86px;
+  }
+  .politics {
+        flex: 1;
+        position: relative;
+        height: 220px;
+  }
+  .markets-tech-media-container {
+        position: absolute;
+        top: 38px;
+        left: 1.06px;
+        line-height: 32px;
+        display: inline-block;
+        width: 103.9px;
+  }
+  .business1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 85.9px;
+  }
+  .business {
+        flex: 1;
+        position: relative;
+        height: 230px;
+  }
+  .tech2 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 96px;
+  }
+  .tech1 {
+        flex: 1;
+        position: relative;
+        height: 358px;
+  }
+  .sports1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 74.1px;
+  }
+  .culture1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 18px;
+        display: inline-block;
+        width: 74.5px;
+  }
+  .culture {
+        flex: 1;
+        position: relative;
+        height: 262px;
+  }
+  .world-parent {
+        position: absolute;
+        top: 56px;
+        left: 130px;
+        width: 1180px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 110px;
+        font-size: 16px;
+  }
+  .footer {
+        width: 100%;
+        position: relative;
+        height: 564px;
+        text-align: left;
+        font-size: 14px;
+        color: #000;
+        font-family: Inter;
+  }
+  
+  .newsletter {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto; /* Centers the entire newsletter section */
+    height: 300px; /* Adjust height */
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    font-family: Inter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers all content vertically */
+    padding: 20px;
+}
+
+/* Center text elements */
+.subscribe-to-our,
+.be-the-first,
+.by-clicking-subscribe {
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Center input box */
+.input {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.input-child {
+    width: 100%;
+    height: 64px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.email-address {
+    position: absolute;
+    left: 20px;
+    font-size: 18px;
+    color: #000;
+}
+
+/* Subscribe button styling */
+.subscribe-wrapper {
+    position: absolute;
+    right: 10px;
+    background-color: #000;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
   
