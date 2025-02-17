@@ -9,3 +9,104 @@
     display: inline-block;
     }
     
+
+    .useful-info-child {
+        position: absolute;
+        top: -0.5px;
+        left: -0.5px;
+        border-top: 1px solid #c7c7c7;
+        box-sizing: border-box;
+        width: 1441px;
+        height: 1px;
+  }
+  .author-child {
+        width: 74px;
+        position: relative;
+        border-radius: 50%;
+        height: 74px;
+        object-fit: cover;
+  }
+  .christine-kolesnikov {
+        position: relative;
+        line-height: 18px;
+        font-weight: 500;
+  }
+  .hypnosis-senior {
+        position: relative;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666;
+  }
+  .christine-kolesnikov-parent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 8px;
+  }
+  .author {
+        position: absolute;
+        top: 19px;
+        left: 130px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+  }
+  .facebook-icon {
+        width: 16px;
+        position: relative;
+        height: 16px;
+  }
+  .twitter-icon {
+        width: 18px;
+        position: relative;
+        height: 14.4px;
+  }
+  .tweet {
+        position: relative;
+        line-height: 20px;
+        font-weight: 500;
+  }
+  .twitter {
+        background-color: #fff;
+        border: 1px solid #b4b4b4;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 12px 16px;
+        gap: 8px;
+  }
+  .share {
+        position: absolute;
+        top: 34px;
+        left: 857px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        font-size: 16px;
+  }
+  .article-useful-info {
+        width: 100%;
+        position: relative;
+        height: 93px;
+        text-align: left;
+        font-size: 20px;
+        color: #000;
+        font-family: Inter;
+  }
+  
+  .article-picture {
+    width: 100%;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    height: 762px;
+    object-fit: cover;
+    }
+    
+  
