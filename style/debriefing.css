@@ -1,0 +1,173 @@
+/* Specifika stilar för debriefing.html */
+
+/* Återanvänd container-stilen från welcome.css eller definiera den här */
+.debriefing-container {
+    background: #fff;
+    padding: 30px 40px; /* Mer padding på sidorna */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px; /* Lite bredare för debriefing-text */
+    margin: 40px auto; /* Centrera på sidan med marginal uppe/nere */
+    border: 1px solid #ccc; /* Lägg till en ram liknande ditt exempel */
+    font-family: 'Inter', sans-serif; /* Säkerställ att typsnittet appliceras */
+}
+
+/* Huvudrubrik */
+.debriefing-container h1 {
+    font-size: 28px;
+    font-weight: 700; /* Eller 500 om du föredrar det */
+    color: #003366; /* Samma färg som andra sidor */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Inledande text */
+.debriefing-container .intro-text {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Generell sektionsstyling */
+.debriefing-container section {
+    margin-bottom: 2rem;
+}
+
+/* Sektionsrubriker */
+.debriefing-container h2 {
+    font-size: 20px;
+    font-weight: 700; /* Fetstil som i ditt exempel */
+    color: #003366;
+    margin-bottom: 0.8rem;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee; /* Tunn linje under rubriken */
+}
+
+/* Paragrafer och listor i info-sektionerna */
+.debriefing-container .info-section p,
+.debriefing-container .info-section ul {
+    font-size: 15px; /* Lite större än 12px för läsbarhet */
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.debriefing-container .info-section ul {
+    list-style-type: disc; /* Använd vanliga punkter */
+    padding-left: 25px; /* Indrag för listan */
+}
+
+.debriefing-container .info-section ul li {
+    margin-bottom: 0.5rem; /* Lite utrymme mellan punkterna */
+}
+
+
+/* --- Kreativ Styling för Kontaktsektionen --- */
+.contact-section {
+    background-color: #f8f9fa; /* Ljusgrå bakgrund för att separera */
+    border-radius: 8px;       /* Mjuka hörn */
+    padding: 25px;            /* Generöst med luft inuti */
+    margin-top: 2.5rem;       /* Lite extra marginal ovanför */
+    border: 1px solid #e9ecef; /* En mjukare kant */
+    position: relative;       /* För eventuell framtida positionering av pseudo-element */
+}
+
+.contact-section h2 {
+    border-bottom: none; /* Ta bort linjen under H2 här om den känns överflödig med bakgrunden */
+    margin-bottom: 1rem; /* Justera marginal vid behov */
+    /* Lägg till en ikon före om du vill (kräver ikon-bibliotek eller bild) */
+    /* content: url('path/to/icon.svg'); */
+}
+
+.contact-section p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.7;  /* Lite luftigare radavstånd */
+    margin-bottom: 0; /* Ta bort standardmarginal då sektionens padding sköter avståndet */
+}
+
+.contact-section a[href^="mailto:"] {
+    display: inline-block; /* Gör att den kan få marginal/padding */
+    margin-top: 0.5rem;   /* Lite utrymme ovanför e-postlänken */
+    font-weight: 500;
+    color: #003366;
+    text-decoration: none; /* Ta bort understrykning initialt */
+    padding: 5px 0;       /* Lite vertikal padding */
+    border-bottom: 1px dashed #003366; /* Streckad underlinje för betoning */
+    transition: all 0.3s ease; /* Mjuk övergång för hover */
+}
+
+.contact-section a[href^="mailto:"]::before {
+    content: "✉️ ";      /* Lägg till kuvert-emoji */
+    margin-right: 4px;
+    display: inline-block;
+    transition: transform 0.3s ease; /* För hover-effekt */
+}
+
+.contact-section a[href^="mailto:"]:hover {
+    color: #0056b3; /* Mörkare blå vid hover */
+    border-bottom-style: solid; /* Heldagen underlinje vid hover */
+}
+
+.contact-section a[href^="mailto:"]:hover::before {
+    transform: scale(1.1) rotate(-5deg); /* Liten animation på emojin vid hover */
+}
+/* --- Slut på Kontaktsektionens styling --- */
+
+
+/* Styling för Footer och Avsluta-knapp (baserat på ny HTML) */
+.footer {
+    text-align: center;
+    margin-top: 2.5rem; 
+    padding-top: 1.5rem; 
+    border-top: 1px solid #eee; /* Linje ovanför footern */
+}
+
+.end-btn {
+    background-color: #003366; /* Samma som andra primära knappar */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.end-btn:hover {
+    background-color: #00264d; /* Mörkare vid hover */
+}
+
+
+/* Responsivitet (exempel) */
+@media (max-width: 600px) {
+    .debriefing-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .debriefing-container h1 {
+        font-size: 24px;
+    }
+    .debriefing-container h2 {
+        font-size: 18px;
+    }
+    .debriefing-container .info-section p,
+    .debriefing-container .info-section ul {
+        font-size: 14px;
+    }
+    /* Justera kontaktsektionens padding på små skärmar */
+    .contact-section {
+        padding: 20px;
+    }
+     .contact-section p,
+     .contact-section a[href^="mailto:"] {
+        font-size: 14px; /* Anpassa textstorlek om info-sektionerna ändras */
+    }
+    .end-btn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+}
