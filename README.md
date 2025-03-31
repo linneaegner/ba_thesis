@@ -1,6 +1,6 @@
 # Bachelor´s Thesis 
 
-subject: hci-cognitive-science
+subject: hci-online-communication-cognitive-science
 
 ## Subheader
 
