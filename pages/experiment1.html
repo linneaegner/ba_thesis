@@ -275,20 +275,35 @@
       </section>
 
       <section class="comment-box">
-        <h2>Dela dina tankar</h2>
-        <p>Här är några tankar på hur du kan börja din kommentar:</p>
-        <div class="comment-suggestions">
-          <button class="btn comment-btn">Jag håller inte med om...</button>
-          <button class="btn comment-btn">Jag håller med om...</button>
-          <button class="btn comment-btn">Jag tycker att...</button>
-          <button class="btn comment-btn">En viktig aspekt är...</button>
-        </div>
-        <textarea placeholder="Skriv din kommentar här..."></textarea>
-      </section>
+        <form id="commentForm" action="/save-comment" method="post">
+          <h2>Dela dina tankar</h2>
+          <p>Här är några tankar på hur du kan börja din kommentar:</p>
+          <div class="comment-suggestions">
+            <button type="button" class="btn nudge-btn">
+              Jag håller inte med om...
+            </button>
+            <button type="button" class="btn nudge-btn">
+              Jag håller med om...
+            </button>
+            <button type="button" class="btn nudge-btn">
+              Jag tycker att...
+            </button>
+            <button type="button" class="btn nudge-btn">
+              En viktig aspekt är...
+            </button>
+          </div>
 
-      <a href="debriefing.html" class="btn-link">
-        <button class="btn next-btn">Kommentera</button>
-      </a>
+          <textarea
+            name="comment_text"
+            placeholder="Skriv din kommentar här..."
+            required
+          ></textarea>
+
+          <div class="submit-container">
+            <button type="submit" class="btn comment-btn">Kommentera</button>
+          </div>
+        </form>
+      </section>
 
       <footer class="footer">
         <button class="btn end-btn">Avsluta studien</button>

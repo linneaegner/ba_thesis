@@ -205,6 +205,8 @@ section {
 .btn {
   display: inline-block; /* Standard för knappar */
   border: none;
+  background-color: #003366;
+  color: white;
   border-radius: 5px;
   padding: 12px 25px; /* Standard padding */
   font-size: 1rem; /* 16px */
@@ -216,72 +218,45 @@ section {
   text-decoration: none; /* För <a> taggar stylade som knappar */
 }
 
+.btn:hover {
+  background-color: #00264d;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  color: #666;
+}
 /* ==========================================================================
      Specific Component Styles / Overrides
      ========================================================================== */
 
 /* --- Knappar --- */
-.next-btn {
-  background-color: #003366;
-  color: white;
-  width: 100%; /* Tar upp hela bredden av föräldern (.btn-link) */
-}
-
-.next-btn:hover {
-  background-color: #00264d;
-}
-
-.next-btn:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  color: #666;
-}
-
-.submit-btn {
-  /* Används i Questionnaire */
-  background-color: #003366;
-  color: white;
-  padding: 12px 35px; /* Specifik padding */
-}
-
-.submit-btn:hover {
-  background-color: #00264d;
-}
-
-.end-btn {
-  /* Används i Footer */
-  background-color: #f1f1f1;
-  color: #333;
-  padding: 10px 20px;
-  margin-top: 15px;
-  font-size: 0.875rem; /* 14px */
-}
-
-.end-btn:hover {
-  background-color: #ddd;
-}
-
-.comment-btn {
+.nudge-btn {
   /* Används i Experiment */
-  background-color: #003366;
+  background-color: #43709e;
   color: white;
   padding: 8px 12px;
   font-size: 14px;
 }
 
-.comment-btn:hover {
-  background-color: #002244;
+.nudge-btn:hover {
+  background-color: #21578d;
 }
 
-/* --- Länkar som innehåller knappar --- */
-.btn-link {
-  text-decoration: none;
-  display: block; /* Länken tar normalt upp full bredd */
-  margin: 1.5rem auto 0 auto; /* Marginal ovanför, centrera om max-width sätts */
-  max-width: 500px; /* Standard max-bredd för centrerade länkar/knappar */
-}
-
+.end-btn {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 0.875rem; /* 14px */
+  }
+  
+  .end-btn:hover {
+    background-color: #ddd;
+  }
 /* --- Footer --- */
+
 .footer {
   margin-top: 2.5rem; /* ca 40px */
   border-top: 1px solid #eee;
@@ -553,12 +528,12 @@ hr.separator {
 }
 
 .comment-list-wrapper {
-    max-height: 400px; /* Sätt maxhöjd innan scroll visas (justera vid behov) */
-    overflow-y: auto;  /* Lägg till vertikal scroll vid behov */
-    padding-right: 10px; /* Lite utrymme så text inte krockar med scrollbar */
-    margin-right: -10px; /* Kompensera för padding så bredden stämmer */
-    border-top: 1px solid #eee; /* Lägg ev. linje här istället för på .comments? */
-    padding-top: 15px; /* Utrymme efter linjen */
+  max-height: 400px; /* Sätt maxhöjd innan scroll visas (justera vid behov) */
+  overflow-y: auto; /* Lägg till vertikal scroll vid behov */
+  padding-right: 10px; /* Lite utrymme så text inte krockar med scrollbar */
+  margin-right: -10px; /* Kompensera för padding så bredden stämmer */
+  border-top: 1px solid #eee; /* Lägg ev. linje här istället för på .comments? */
+  padding-top: 15px; /* Utrymme efter linjen */
 }
 .comments h2 {
   font-size: 1.25rem;
@@ -722,7 +697,6 @@ hr.separator {
   margin-bottom: 1.5rem; /* Lite mindre marginal mellan dessa två frågor? */
 }
 
-/* ... resten av debriefing-stilarna ... */
 /* ==========================================================================
      Media Queries (Combined & Scoped)
      ========================================================================== */
