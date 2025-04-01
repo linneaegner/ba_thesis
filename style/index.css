@@ -1,77 +1,39 @@
 /* Specifika stilar för den nya index.html (landningssidan) */
-
-/* Använd flexbox på body för att centrera innehållet vertikalt och horisontellt */
-body {
-    display: flex;
-    min-height: 100vh; /* Säkerställ att body tar upp hela höjden */
-    justify-content: center; /* Centrera horisontellt */
-    align-items: center;    /* Centrera vertikalt */
-    padding: 20px; /* Lite marginal runt innehållet */
-    /* global.css sätter redan font-family och background-color */
-}
-
 /* Huvudbehållaren för index-sidans innehåll */
 .index-container {
-    width: 90%;           /* Responsiv bredd */
-    max-width: 550px;     /* Maxbredd för läsbarhet */
-    padding: 30px 20px;   /* Lite luft inuti behållaren */
-    text-align: center;   /* Centrera all text inuti */
-    /* Ingen egen bakgrund eller skugga för ett enklare utseende än welcome-sidan */
+  max-width: 550px; /* Maxbredd för läsbarhet */
+  padding: 30px 20px; /* Lite luft inuti behållaren */
+  text-align: center; /* Centrera all text inuti */
+  /* Ingen egen bakgrund eller skugga för ett enklare utseende än welcome-sidan */
 }
 
 /* Huvudrubrik */
 .index-container h1 {
-    font-size: 30px;      /* Något större rubrik */
-    font-weight: 500;
-    color: #003366;       /* Samma färg som på welcome-sidan */
-    margin-bottom: 1rem;  /* Använd global hjälpklass (eller sätt specifik marginal) */
+  font-size: 30px; /* Något större rubrik */
+  font-weight: 500;
+  color: #003366; /* Samma färg som på welcome-sidan */
+  margin-bottom: 1rem; /* Använd global hjälpklass (eller sätt specifik marginal) */
 }
 
 /* Beskrivande text */
 .index-container .description {
-    font-size: 17px;      /* Tydlig och läsbar storlek */
-    color: #555;          /* Mjukare färg än rubriken */
-    margin-bottom: 2rem;  /* Mer utrymme ner till knappen */
-    /* line-height sätts i global.css */
+  font-size: 17px; /* Tydlig och läsbar storlek */
+  color: #555; /* Mjukare färg än rubriken */
+  margin-bottom: 2rem; /* Mer utrymme ner till knappen */
+  /* line-height sätts i global.css */
 }
-
-/* Länken som omsluter knappen */
-.index-container .button-link {
-    text-decoration: none; /* Ta bort understrykning (global.css gör detta, men bra att ha här med) */
-    display: inline-block; /* Gör att länken inte tar upp hela bredden */
-}
-
-/* "Jag är redo"-knappen */
-.index-container .ready-button {
-    background-color: #003366; /* Samma färg som start-knappen */
-    color: white;
-    border: none;
-    padding: 14px 35px;   /* Generöst med padding */
-    border-radius: 5px;   /* Mjuka hörn */
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Mjuk övergång */
-    /* Ingen fast bredd, låt innehållet bestämma */
-}
-
-/* Hover-effekt för knappen */
-.index-container .ready-button:hover {
-    background-color: #00264d; /* Mörkare nyans vid hover */
-}
-
 /* Anpassningar för mindre skärmar */
 @media (max-width: 480px) {
-    .index-container h1 {
-        font-size: 26px; /* Lite mindre rubrik */
-    }
+  .index-container h1 {
+    font-size: 26px; /* Lite mindre rubrik */
+  }
 
-    .index-container .description {
-        font-size: 16px;
-    }
+  .index-container .description {
+    font-size: 16px;
+  }
 
-    .index-container .ready-button {
-        padding: 12px 30px; /* Lite mindre padding */
-        font-size: 16px;
-    }
+  .index-container .ready-button {
+    padding: 12px 30px; /* Lite mindre padding */
+    font-size: 16px;
+  }
 }

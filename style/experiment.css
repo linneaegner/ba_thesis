@@ -1,13 +1,5 @@
 /* Specifika stilar för artikelsidan - spara i style/article.css */
-body {
-  font-family: "Inter", Arial, sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-}
+
 
 /* Huvudcontainer för artiklar */
 .article-container {
@@ -16,7 +8,6 @@ body {
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
-  width: 100%;
 }
 
 /* Artikelheader */

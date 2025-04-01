@@ -1,21 +1,9 @@
-/* Specifika stilar för indexsidan */
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
+/* Specifika stilar för välkomst sidan */
+.welcome-container {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
     max-width: 500px;
     text-align: center;
 }
@@ -47,29 +35,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-}
-
-ul li {
-    margin-bottom: 10px;
-    font-size: 15px;
-    position: relative;
-    padding-left: 25px;
-}
-
-/* Lägg till punkter före varje punkt i listan */
-ul li:before {
-    content: "•";
-    color: #003366;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
 .consent {
     display: flex;
     align-items: flex-start;
@@ -87,34 +52,6 @@ ul li:before {
     font-size: 14px;
     line-height: 1.5;
     color: #555;
-}
-
-.button-link {
-    text-decoration: none;
-    display: block;
-    width: 100%;
-}
-
-.start-button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
-
-.start-button:hover {
-    background-color: #00264d;
-}
-
-.start-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
 }
 
 /* Responsiv design för mindre skärmar */
