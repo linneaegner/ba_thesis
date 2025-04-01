@@ -54,9 +54,44 @@
         </p>
       </section>
 
-      <footer class="footer">
-        <button class="btn end-btn">Avsluta studien</button>
-      </footer>
+
+    </section> 
+
+    <section class="feedback-section"> 
+        <h2>Frivillig feedback om experimentet</h2>
+  
+        <form id="debriefingForm" action="/save-feedback" method="post"> 
+  
+            <fieldset class="question-group">
+              <legend class="question-label" for="interesting_observations">
+                Noterade du något särskilt intressant under experimentet som du vill dela med dig av?
+              </legend>
+              <textarea
+                id="interesting_observations"
+                name="interesting_observations"
+                rows="3"
+                placeholder="Dina observationer..."
+              ></textarea>
+            </fieldset>
+  
+            <fieldset class="question-group">
+              <legend class="question-label" for="technical_issues">
+                Upplevede du några tekniska problem eller avbrott under experimentet?
+              </legend>
+              <textarea
+                id="technical_issues"
+                name="technical_issues"
+                rows="3"
+                placeholder="Beskriv eventuella problem..."
+              ></textarea>
+            </fieldset>
+  
+            </form>
+    </section>
+    <footer class="footer">
+        <button type="submit" form="debriefingForm" class="btn end-btn">Skicka feedback & Avsluta</button> 
+    </footer>
+      
     </div>
     <script src="../script/main.js"></script>
   </body>
