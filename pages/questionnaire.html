@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enkät | Online-forskningsstudie</title>
+    <link rel="stylesheet" href="../style/global.css" />
+    <link rel="stylesheet" href="../style/questionnaire.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="container questionnaire-container">
+      <h1>Snabba frågor</h1>
+      <p class="intro-text">
+        Innan studien fortsätter ber vi dig att svara på några korta frågor om
+        dig själv och dina vanor online. Dina svar är anonyma och hjälper oss
+        att förstå våra deltagare och resultaten bättre.
+      </p>
+
+      <form id="questionnaireForm" action="/save-questionnaire" method="post">
+        <fieldset class="question-group">
+          <legend class="question-label">1. Hur gammal är du?</legend>
+          <label for="age" class="sr-only">Ange din ålder</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            min="18"
+            max="120"
+            placeholder="Ange din ålder här..."
+            required
+          />
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            2. Vilket kön identifierar du dig som?
+          </legend>
+          <div class="radio-option">
+            <input type="radio" id="gender_female" name="gender" value="female" required />
+            <label for="gender_female">Kvinna</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gender_male" name="gender" value="male" />
+            <label for="gender_male">Man</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gender_nonbinary" name="gender" value="nonbinary_other"/>
+            <label for="gender_nonbinary">Icke-binär / Annat</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="gender_prefer_not_say" name="gender" value="prefer_not_say"/>
+            <label for="gender_prefer_not_say">Vill ej uppge</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            3. Var står du i frågan när det gäller klimatförändringar?
+          </legend>
+          <div class="radio-option">
+            <input type="radio" id="climate_very_concerned" name="climate_stance" value="very_concerned" required />
+            <label for="climate_very_concerned">Mycket bekymrad</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="climate_somewhat_concerned" name="climate_stance" value="somewhat_concerned"/>
+            <label for="climate_somewhat_concerned">Något bekymrad</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="climate_neutral" name="climate_stance" value="neutral"/>
+            <label for="climate_neutral">Neutral</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="climate_somewhat_skeptical" name="climate_stance" value="somewhat_skeptical"/>
+            <label for="climate_somewhat_skeptical">Något skeptisk</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="climate_very_skeptical" name="climate_stance" value="very_skeptical"/>
+            <label for="climate_very_skeptical">Mycket skeptisk</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            4. Hur ofta engagerar du dig i online-diskussioner eller i
+            kommentarsfält?
+          </legend>
+          <div class="radio-option">
+            <input type="radio" id="engagement_daily" name="engagement_frequency" value="daily" required />
+            <label for="engagement_daily">Varje dag</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="engagement_weekly" name="engagement_frequency" value="weekly"/>
+            <label for="engagement_weekly">Varje vecka</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="engagement_monthly" name="engagement_frequency" value="monthly"/>
+            <label for="engagement_monthly">Varje månad</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="engagement_rarely" name="engagement_frequency" value="rarely"/>
+            <label for="engagement_rarely">Sällan</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="engagement_never" name="engagement_frequency" value="never"/>
+            <label for="engagement_never">Aldrig</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label" for="engagement_purpose">
+            5. I vilket syfte engagerar du dig i online-diskussioner eller i
+            kommentarsfält? (Svara "inget" om du aldrig engagerar dig)
+          </legend>
+          <textarea id="engagement_purpose" name="engagement_purpose" rows="3" placeholder="Skriv ditt syfte här..." required></textarea>
+        </fieldset>
+        
+        <hr class="separator"> <fieldset class="question-group">
+          <legend class="question-label" for="interesting_observations">
+            6. Noterade du något särskilt intressant under experimentet som du vill dela med dig av? (Frivilligt)
+          </legend>
+          <textarea id="interesting_observations" name="interesting_observations" rows="3" placeholder="Dina observationer..."></textarea>
+        </fieldset>
+        
+         <fieldset class="question-group">
+          <legend class="question-label" for="technical_issues">
+            7. Upplevede du några tekniska problem eller avbrott under experimentet? (Frivilligt)
+          </legend>
+          <textarea id="technical_issues" name="technical_issues" rows="3" placeholder="Beskriv eventuella problem..."></textarea>
+        </fieldset>
+
+        <a href="experiment1.html" class="button-link">
+            <button class="submit-btn">
+                Skicka svar och fortsätt
+              </button>
+          </a>
+        
+      </form>
+    </div>
+    </body>
+</html>
