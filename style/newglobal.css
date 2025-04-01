@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    Global Resets & Base Element Styles
    ========================================================================== */
@@ -18,6 +17,7 @@ body {
   background-color: rgb(245, 250, 250);
   line-height: 1.6;
   color: #333;
+  /* padding: 40px;  <-- Borttagen för att låta page-container styra marginal */
 }
 
 body.center-content-body {
@@ -25,6 +25,7 @@ body.center-content-body {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* Padding kan behövas här för centrerade sidor */
 }
 
 h1,
@@ -65,15 +66,15 @@ li {
 
 /* Gemensam stil för punktlistor (används på welcome & debriefing) */
 .info-section ul li, /* Debriefing */
-  .study-info ul li,   /* Welcome */
-  .important-info ul li /* Welcome */ {
+    .study-info ul li,   /* Welcome */
+    .important-info ul li /* Welcome */ {
   position: relative;
   padding-left: 25px;
 }
 
 .info-section ul li::before, /* Debriefing */
-  .study-info ul li::before,   /* Welcome */
-  .important-info ul li::before /* Welcome */ {
+    .study-info ul li::before,   /* Welcome */
+    .important-info ul li::before /* Welcome */ {
   content: "•";
   color: #003366;
   font-weight: bold;
@@ -142,12 +143,11 @@ label {
 
 section {
   margin-bottom: 1.5rem; /* ca 24px */
-  /* text-align: left; - Tas bort, sätts vid behov */
 }
 
 /* ==========================================================================
-     Utility Classes
-     ========================================================================== */
+       Utility Classes
+       ========================================================================== */
 
 .text-center {
   text-align: center;
@@ -185,53 +185,51 @@ section {
 }
 
 /* ==========================================================================
-     Base Component Styles
-     ========================================================================== */
+       Base Component Styles
+       ========================================================================== */
 
-/* Base container styles - Lägg till .page-container i HTML */
+/* Base container styles - Appliceras INTE på experiment.html */
 .page-container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    padding: 30px; 
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
-    max-width: 800px;  /* Standard max-width, kan överridas */
-    margin-top: 2.5rem;  /* LÄGG TILL: Konsekvent marginal uppåt (ca 40px) */
-    margin-bottom: 2.5rem; /* LÄGG TILL: Konsekvent marginal nedåt (ca 40px) */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  max-width: 700px; /* Ändrat från 800px för konsekvens, experiment sätter eget */
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 /* Base button styles - Lägg till .btn i HTML */
 .btn {
-  display: inline-block; /* Standard för knappar */
+  display: inline-block;
   border: none;
   border-radius: 5px;
-  padding: 12px 25px; /* Standard padding */
-  font-size: 1rem; /* 16px */
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
-  text-decoration: none; /* För <a> taggar stylade som knappar */
+  text-decoration: none;
 }
 
 /* ==========================================================================
-     Specific Component Styles / Overrides
-     ========================================================================== */
+       Specific Component Styles / Overrides
+       ========================================================================== */
 
 /* --- Knappar --- */
 .next-btn {
   background-color: #003366;
   color: white;
-  width: 100%; /* Tar upp hela bredden av föräldern (.btn-link) */
+  width: 100%;
 }
-
 .next-btn:hover {
   background-color: #00264d;
 }
-
 .next-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
@@ -239,37 +237,31 @@ section {
 }
 
 .submit-btn {
-  /* Används i Questionnaire */
   background-color: #003366;
   color: white;
-  padding: 12px 35px; /* Specifik padding */
+  padding: 12px 35px;
 }
-
 .submit-btn:hover {
   background-color: #00264d;
 }
 
 .end-btn {
-  /* Används i Footer */
   background-color: #f1f1f1;
   color: #333;
   padding: 10px 20px;
   margin-top: 15px;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
 }
-
 .end-btn:hover {
   background-color: #ddd;
 }
 
 .comment-btn {
-  /* Används i Experiment */
   background-color: #003366;
   color: white;
   padding: 8px 12px;
   font-size: 14px;
 }
-
 .comment-btn:hover {
   background-color: #002244;
 }
@@ -277,31 +269,31 @@ section {
 /* --- Länkar som innehåller knappar --- */
 .btn-link {
   text-decoration: none;
-  display: block; /* Länken tar normalt upp full bredd */
-  margin: 1.5rem auto 0 auto; /* Marginal ovanför, centrera om max-width sätts */
-  max-width: 500px; /* Standard max-bredd för centrerade länkar/knappar */
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  max-width: 500px;
 }
 
 /* --- Footer --- */
 .footer {
-  margin-top: 2.5rem; /* ca 40px */
+  margin-top: 2.5rem;
   border-top: 1px solid #eee;
-  padding-top: 1.25rem; /* ca 20px */
+  padding-top: 1.25rem;
   text-align: center;
   color: #666;
 }
 
 /* --- Beskrivningstext --- */
 .description {
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   color: #555;
   line-height: 1.5;
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem;
 }
 
 /* --- Introduktionstext (Questionnaire, Debriefing) --- */
 .intro-text {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   color: #555;
   text-align: center;
   margin-bottom: 2.5rem;
@@ -309,124 +301,109 @@ section {
 }
 
 /* ==========================================================================
-     Page Specific Styles
-     ========================================================================== */
+       Page Specific Styles
+       ========================================================================== */
 
 /* --- Index Page --- */
+/* Container-stilar för index (om den ska vara centrerad och utan box) */
 .index-container {
   max-width: 550px;
-  padding: 30px 20px;
   text-align: center;
-  background: none; /* Överrid baskontainer */
-  border: none; /* Överrid baskontainer */
-  box-shadow: none; /* Överrid baskontainer */
+  /* Ingen bakgrund, ram, skugga eller padding från .page-container */
+  /* Margin top/bottom styrs av body.center-content-body */
 }
-
 .index-container h1 {
-  font-size: 1.875rem; /* 30px */
+  font-size: 1.875rem;
   margin-bottom: 1rem;
 }
-
 .index-container .description {
-  font-size: 1.0625rem; /* 17px */
+  font-size: 1.0625rem;
   margin-bottom: 2rem;
 }
-
-/* Specifik knappstyling för index */
 .index-container .btn-link {
-  display: inline-block; /* Låt knappens bredd styra */
-  width: auto; /* Återställ width */
-  max-width: none; /* Återställ max-width */
+  display: inline-block;
+  width: auto;
+  max-width: none;
 }
-
 .index-container .next-btn {
   padding: 15px 35px;
-  font-size: 1.0625rem; /* 17px */
-  width: auto; /* Låt innehållet styra bredden */
+  font-size: 1.0625rem;
+  width: auto;
 }
 
 /* --- Welcome Page --- */
 .welcome-container {
+  max-width: 500px;
   text-align: center;
-}
-
+} /* Specifik max-bredd */
 .welcome-container section {
-  text-align: left; /* Återställ för sektioner inuti */
+  text-align: left;
 }
-
 .consent {
   display: flex;
   align-items: flex-start;
   margin: 25px 0;
   text-align: left;
 }
-
 .consent input {
   margin-right: 10px;
-  margin-top: 3px; /* Justera för linjering med text */
+  margin-top: 3px;
   transform: scale(1.2);
-  flex-shrink: 0; /* Förhindra krympning */
+  flex-shrink: 0;
 }
-
 .consent label {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   line-height: 1.5;
   color: #555;
-  font-weight: 400; /* Återställ från ev. global label-stil */
+  font-weight: 400;
 }
-
 .study-info,
 .important-info {
   background-color: #f8f9fa;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem;
   text-align: left;
 }
-
 .study-info h2,
 .important-info h2 {
   margin-top: 0;
-  margin-bottom: 0.75rem; /* 12px */
+  margin-bottom: 0.75rem;
 }
 
 /* --- Questionnaire Page --- */
-
+.questionnaire-container {
+  max-width: 750px;
+} /* Specifik max-bredd */
 .questionnaire-container h1 {
-  font-size: 1.625rem; /* 26px */
+  font-size: 1.625rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
 }
-
 .question-group {
   margin: 0 0 2rem 0;
   border-top: 1px solid #eee;
   padding-top: 1.5rem;
 }
-
-/* Label för fråga (legend eller label) */
 .question-label,
 .question-group legend {
   display: block;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
   margin-bottom: 0.8rem;
   width: 100%;
 }
-
 .questionnaire-container input[type="number"] {
-  max-width: 200px; /* Begränsa bredden för ålder */
+  max-width: 200px;
 }
-
 .radio-option {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
   cursor: pointer;
 }
-
 .radio-option input[type="radio"] {
   margin-right: 10px;
   flex-shrink: 0;
@@ -440,11 +417,9 @@ section {
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
-
 .radio-option input[type="radio"]:checked {
   border-color: #003366;
 }
-
 .radio-option input[type="radio"]:checked::before {
   content: "";
   display: block;
@@ -457,71 +432,60 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .radio-option label {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   font-weight: 400;
   color: #333;
   flex-grow: 1;
   margin-bottom: 0;
   cursor: pointer;
 }
-
 hr.separator {
   border: none;
   border-top: 1px dashed #ccc;
   margin: 2.5rem 0;
 }
-
 .submit-container {
   text-align: center;
   margin-top: 3rem;
 }
 
 /* --- Experiment Page --- */
-
+/* Grundläggande layout för article-container (ersätter page-container) */
 .article-container {
-    /* Behåll eller justera max-width för läsbarhet */
-    max-width: 800px; 
-
-    /* Lägg till width, margin-left/right för centrering */
-    width: 90%; /* Behåll responsiv bredd */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Lägg till konsekvent vertikal marginal (samma som .page-container) */
-    margin-top: 2.5rem;  
-    margin-bottom: 2.5rem;
-
-    /* VIKTIGT: Ingen background-color, box-shadow, border, eller generell padding här */
-    /* padding: 20px;  <-- TA BORT denna om den fanns här specifikt */
+  max-width: 800px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  /* Ingen bakgrund, ram, skugga, padding här */
 }
+/* Artikelns innehållsstilar */
 .article-header {
   margin-bottom: 30px;
 }
 .article-header h1 {
   font-size: 1.75rem;
   margin-bottom: 10px;
-} /* 28px */
+}
 .article-lead {
   font-size: 1.125rem;
   line-height: 1.4;
-  color: #555;
+  color: #555555;
   margin-bottom: 15px;
-} /* 18px */
-
+}
 .article-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 15px; /* 14px */
+  color: #4f4f4f;
+  margin-bottom: 15px;
 }
 .article-meta p {
   margin: 0;
 }
-
 .article-image {
   width: 100%;
   margin-bottom: 20px;
@@ -532,31 +496,39 @@ hr.separator {
   object-fit: cover;
   border-radius: 8px;
 }
-
 .article-content {
   line-height: 1.6;
-  color: #333;
+  color: #333333;
   margin-bottom: 30px;
 }
 .article-content p {
   margin-bottom: 1.25rem;
-} /* 20px */
+}
 .article-content h2 {
   font-size: 1.375rem;
   margin: 30px 0 15px 0;
-} /* 22px */
-
+}
+/* Kommentar-sektionen */
 .comments {
   margin-top: 40px;
-  border-top: 1px solid #eee;
-  padding-top: 20px;
   margin-bottom: 30px;
-}
+} /* Tog bort border/padding-top */
 .comments h2 {
   font-size: 1.25rem;
-  margin-bottom: 20px;
-} /* 20px */
-
+  margin-bottom: 0;
+  padding-bottom: 10px;
+} /* Marginal under H2 tas om hand av wrapper */
+/* Scroll-wrapper för kommentarer */
+.comment-list-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-right: -10px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 10px; /* Utrymme efter H2 */
+}
+/* Enskild kommentar */
 .comment {
   background-color: #f1f1f1;
   padding: 15px;
@@ -570,9 +542,8 @@ hr.separator {
 .comment p:first-child {
   color: #666;
   font-size: 0.875rem;
-} /* 14px */
-/* .comment p:last-child { margin-top: 8px; } /* Verkar onödig? */
-
+}
+/* Kommentar-box */
 .comment-box {
   background-color: #f9f9f9;
   padding: 20px;
@@ -583,76 +554,60 @@ hr.separator {
   font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 10px;
-} /* 20px */
+}
 .comment-box p {
   margin-bottom: 15px;
   color: #555;
 }
-
 .comment-suggestions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
 }
-
-/* Scoped textarea for comment box */
 .comment-box textarea {
-  width: 100%;
-  height: 80px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: vertical; /* Ändrat från none */
   margin-top: 10px;
   margin-bottom: 15px;
-  font-family: "Inter", Arial, sans-serif;
+  resize: vertical;
 }
-
-/* Scoped submit button for comment box */
 .comment-box .next-btn {
-  /* Återanvänder .next-btn klassen här nu */
-  width: 100%; /* Behåller full bredd inuti boxen */
-  padding: 10px; /* Justerar padding */
+  width: 100%;
+  padding: 10px;
 }
 
 /* --- Debriefing Page --- */
-
+.debriefing-container {
+  max-width: 700px;
+} /* Specifik max-bredd */
 .debriefing-container h1 {
-  font-size: 1.75rem; /* 28px */
+  font-size: 1.75rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5rem;
 }
-
 .debriefing-container section {
   margin-bottom: 2rem;
 }
-
 .debriefing-container h2 {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
   margin-top: 0px;
   font-weight: 700;
   margin-bottom: 0.8rem;
   padding-bottom: 5px;
   border-bottom: 1px solid #eee;
 }
-
-/* Gäller p och ul i info-sektioner */
 .debriefing-container .info-section p,
 .debriefing-container .info-section ul {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   margin-bottom: 1rem;
   line-height: 1.6;
 }
 .debriefing-container .info-section ul {
-  padding-left: 25px; /* Indrag ärvs inte, sätt här med */
+  padding-left: 25px;
 }
 .debriefing-container .info-section ul li {
   margin-bottom: 0.5rem;
-  /* Punkt-stilar hanteras globalt nu */
 }
-
 .contact-section {
   background-color: #f8f9fa;
   border-radius: 8px;
@@ -666,7 +621,7 @@ hr.separator {
   margin-bottom: 1rem;
 }
 .contact-section p {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   line-height: 1.7;
   margin-bottom: 0;
 }
@@ -695,25 +650,24 @@ hr.separator {
 }
 
 /* ==========================================================================
-     Media Queries (Combined & Scoped)
-     ========================================================================== */
+       Media Queries (Combined & Scoped)
+       ========================================================================== */
 
 @media (max-width: 768px) {
   /* Tablet and smaller */
-  /* Experiment Page adjustments */
   .article-header h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   .article-lead {
     font-size: 1rem;
-  } /* 16px */
+  }
   .article-meta {
     flex-direction: column;
     gap: 5px;
   }
   .article-content h2 {
     font-size: 1.25rem;
-  } /* 20px */
+  }
   .comment-suggestions {
     flex-direction: column;
   }
@@ -724,110 +678,104 @@ hr.separator {
 
 @media (max-width: 600px) {
   /* Smaller phone portrait */
-  /* Base container adjustments */
-  .page-container {
+  .page-container, .article-container /* Applicera även på article-container */ {
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  /* Base heading adjustments */
   h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   h2 {
     font-size: 1.125rem;
-  } /* 18px */
+  }
   p,
   li,
   label {
     font-size: 0.875rem;
-  } /* 14px */
-
-  /* Questionnaire adjustments */
+  }
   .questionnaire-container h1 {
     font-size: 1.375rem;
-  } /* 22px */
+  }
   .question-label,
   .question-group legend {
     font-size: 0.9375rem;
-  } /* 15px */
+  }
   .questionnaire-container input[type="text"],
   .questionnaire-container input[type="number"],
   .questionnaire-container textarea,
   .radio-option label {
     font-size: 0.875rem;
-  } /* 14px */
+  }
   .submit-btn {
     padding: 10px 30px;
     font-size: 0.9375rem;
-  } /* 15px */
-
-  /* Debriefing adjustments */
+  }
   .debriefing-container h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   .debriefing-container h2 {
     font-size: 1.125rem;
-  } /* 18px */
+  }
   .debriefing-container .info-section p,
   .debriefing-container .info-section ul,
   .contact-section p,
   .contact-section a[href^="mailto:"] {
     font-size: 0.875rem;
-  } /* 14px */
+  }
   .contact-section {
     padding: 20px;
   }
   .end-btn {
     padding: 10px 25px;
     font-size: 0.9375rem;
-  } /* 15px */
+  }
 }
 
 @media (max-width: 480px) {
   /* Smallest phones */
-  body {
-    padding: 10px;
-  } /* Mindre padding runt allt */
+  body:not(.center-content-body) {
+    /* Applicera bara om body INTE är centrerad */
+    padding: 10px; /* Mindre padding runt allt */
+  }
+  body.center-content-body {
+    padding: 10px; /* Även centrerade sidor får mindre padding */
+  }
 
-  .page-container {
-    padding: 15px;
-  } /* Ännu mindre padding inuti containrar */
-
-  /* Index page adjustments */
-  .index-container h1 {
-    font-size: 1.625rem;
-  } /* 26px */
-  .index-container .description {
-    font-size: 1rem;
-  } /* 16px */
-  .index-container .next-btn {
-    padding: 12px 30px;
-    font-size: 1rem;
-  } /* 16px */
-
-  /* Welcome page adjustments */
-  .welcome-container h1 {
-    font-size: 1.5rem;
-  } /* 24px */
-  .welcome-container h2 {
-    font-size: 1.125rem;
-  } /* 18px */
-  .welcome-container .description,
-  .welcome-container ul li {
-    font-size: 0.875rem;
-  } /* 14px */
-  .consent label {
-    font-size: 0.8125rem;
-  } /* 13px */
-
-  /* Experiment page adjustments */
+  .page-container,
   .article-container {
     padding: 15px;
   }
+  .index-container {
+    padding: 15px;
+  } /* Index behöver också mindre padding */
+
+  .index-container h1 {
+    font-size: 1.625rem;
+  }
+  .index-container .description {
+    font-size: 1rem;
+  }
+  .index-container .next-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  .welcome-container h1 {
+    font-size: 1.5rem;
+  }
+  .welcome-container h2 {
+    font-size: 1.125rem;
+  }
+  .welcome-container .description,
+  .welcome-container ul li {
+    font-size: 0.875rem;
+  }
+  .consent label {
+    font-size: 0.8125rem;
+  }
   .article-header h1 {
     font-size: 1.375rem;
-  } /* 22px */
+  }
   .comment {
     padding: 10px;
   }
