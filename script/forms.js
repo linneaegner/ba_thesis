@@ -1,6 +1,6 @@
 /**
  * @fileoverview Hanterar formulär och interaktioner på enkät-, experiment- och debriefingsidorna.
- * Inkluderar insamling och (simulerad) sändning av data samt interaktion med "nudge"-knappar.
+ * Inkluderar insamling och sändning av data (simulerad än så länge).
  * Använder FormData för effektiv formulärdatahantering och async/await för fetch-anrop.
  */
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 // Hantera eventuella fel som uppstår under fetch eller bearbetning.
                 console.error('Fel vid sändning av enkät:', error);
-                alert('Ett fel uppstod när dina svar skulle sparas. Försök igen eller kontakta administratören.');
+                alert('Ett fel uppstod när dina svar skulle sparas. Försök igen eller kontakta försöksledaren via mail gusegnerli@student.gu.se.');
 
                 // Återaktivera knappen om ett fel inträffade.
                 if (submitButton) {
@@ -90,6 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } // Slut på if (questionnaireForm)
 
 
+
+
+
+
+
+    
     /**
      * ==========================================================================
      * Hantering av Förslagsknappar ("Nudge Buttons") (experiment page)

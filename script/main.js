@@ -1,74 +1,52 @@
-// Kör all kod nedanför först när hela HTML-sidan har laddats klart
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * @fileoverview Hanterar formulär och interaktioner på enkät-, experiment- och debriefingsidorna.
+ * Inkluderar insamling och sändning av data (simulerad än så länge).
+ * Använder FormData för effektiv formulärdatahantering och async/await för fetch-anrop.
+ */
 
-    /*
-    ==========================================================================
-    Kod för att hantera/skicka/spara datan från enkätformuläret (questionnaire page)
-    ==========================================================================
-    Förklaring: Denna kod hanterar insamling av enkätsvar från användaren.
-    Den samlar in data från formuläret och skickar det till servern via fetch().
-    Efter att datan har skickats, skickas användaren vidare till nästa sida. 
+// Vänta tills hela HTML-dokumentet har laddats och DOM:en är redo.
+document.addEventListener('DOMContentLoaded', () => {
+    /**
+        * ==========================================================================
+        * Hantering av Enkätformulär (questionnaire page)
+        * Samlar in data från enkätformuläret när det skickas,
+        * validerar (implicit via FormData), skickar (simulerat) till servern
+        * och omdirigerar användaren till nästa sida vid framgång.
+        * ==========================================================================
     */
 
-    // Hitta enkätformuläret via dess ID
     const questionnaireForm = document.getElementById('questionnaireForm');
 
-    // Om formuläret finns på den aktuella sidan...
     if (questionnaireForm) {
-
-        // ...lägg på en "lyssnare" som kör kod när man försöker skicka det
-        questionnaireForm.addEventListener('submit', (event) => {
-
-            // Stoppa webbläsarens standardbeteende (att ladda om sidan)
+        // Lägg till en händelselyssnare för 'submit'-händelsen.
+        // Använder async för att kunna använda await inuti funktionen.
+        questionnaireForm.addEventListener('submit',(event) => {
+            // Förhindra standardformulärsändning som laddar om sidan.
             event.preventDefault();
+            console.log('Enkätformulär skickas...');
 
-            console.log('Enkätformulär skickat (via JS)'); // För felsökning
+            // Hämta referens till submit-knappen (om den behövs för feedback)
+            // Antag att knappen har typen "submit" eller ett specifikt ID/klass.
+            const submitButton = questionnaireForm.querySelector('button[type="submit"]'); // Anpassa selektorn vid behov
 
-            // Skapa ett objekt för att samla in all data
-            const formData = {};
+            // Skapa ett FormData-objekt direkt från formuläret.
+            // Detta samlar automatiskt alla fält med ett 'name'-attribut.
+            const formData = new FormData(questionnaireForm);
 
-            // 1. Hämta Ålder (från input med id="age")
-            const ageInput = document.getElementById('age');
-            if (ageInput) {
-                formData.age = ageInput.value;
-            }
-
-            // 2. Hämta valt Kön (från radioknappar med name="gender")
-            const selectedGender = questionnaireForm.querySelector('input[name="gender"]:checked');
-            if (selectedGender) {
-                formData.gender = selectedGender.value;
-            } else {
-                formData.gender = null; // Om ingen är vald (bör inte hända med 'required')
-            }
-
-            // 3. Hämta vald Klimatinställning (från name="climate_stance")
-            const selectedClimateStance = questionnaireForm.querySelector('input[name="climate_stance"]:checked');
-            if (selectedClimateStance) {
-                formData.climate_stance = selectedClimateStance.value;
-            } else {
-                formData.climate_stance = null;
-            }
-
-            // 4. Hämta vald Engagemangsfrekvens (från name="engagement_frequency")
-            const selectedEngagementFreq = questionnaireForm.querySelector('input[name="engagement_frequency"]:checked');
-            if (selectedEngagementFreq) {
-                formData.engagement_frequency = selectedEngagementFreq.value;
-            } else {
-                formData.engagement_frequency = null;
-            }
-
-            // 5. Hämta Engagemangssyfte (från textarea med id="engagement_purpose")
-            const purposeTextarea = document.getElementById('engagement_purpose');
-            if (purposeTextarea) {
-                formData.engagement_purpose = purposeTextarea.value.trim();
-            }
-            
+            // Konvertera FormData till ett vanligt JavaScript-objekt om din server förväntar sig JSON.
+            // Object.fromEntries är ett smidigt sätt att göra detta.
+            const dataToSend = Object.fromEntries(formData.entries());
 
 
-            
+
             // (För felsökning) Visa den insamlade datan i konsolen
-            console.log('Insamlad enkätdata:', formData);
+            console.log('Insamlad enkätdata:', dataToSend);
 
+            // Inaktivera knappen medan data skickas för att förhindra dubbelklick.
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sparar...'; // Ge visuell feedback
+            }
             // *** VIKTIGT: Här ska du skicka datan till din server! ***
             // Använd fetch() för att skicka 'formData'-objektet (ofta som JSON) 
             // till din '/save-questionnaire' endpoint.
@@ -88,13 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'experiment1.html'; // <-- OBS: Rätt sökväg?
             })
             .catch(error => {
+                // Hantera eventuella fel som uppstår under fetch eller bearbetning.
                 console.error('Fel vid sändning av enkät:', error);
-                alert('Kunde inte skicka dina enkätsvar. Försök igen.');
+                alert('Ett fel uppstod när dina svar skulle sparas. Försök igen eller kontakta försöksledaren via mail gusegnerli@student.gu.se.');
             });
             */
 
             // Tillfällig kod för att visa att det funkar och gå vidare (byt ut sen):
-            alert('Enkätsvar skickade (simulerat): ' + JSON.stringify(formData)); // Ta bort denna rad sen
+            // Om allt gick bra (simulerat):
+            console.log('Enkätsvar sparade (simulerat), går vidare till experiment1.html');
+            alert('Enkätsvar skickade (simulerat): ' + JSON.stringify(dataToSend)); // Ta bort denna rad sen
+            // Omdirigera till nästa sida ENDAST om sändningen lyckades.
             window.location.href = 'experiment1.html'; // Gå till nästa sida <-- OBS: Se till att sökvägen är rätt!
 
         }); // Slut på submit-lyssnaren
@@ -107,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
      samt interaktion med "nudge"-knappar
     ==========================================================================
     */
-    
+
     // Hitta textrutan där man skriver kommentaren
     const commentTextarea = document.getElementById('commentTextarea');
     // Hitta alla knappar som ger textförslag
@@ -178,24 +160,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-     /*
-    ==========================================================================
-    Kod för att hantera/skicka/spara datan från feedback frågorna (debriefing page)
-    ==========================================================================
-    */
+    /*
+   ==========================================================================
+   Kod för att hantera/skicka/spara datan från feedback frågorna (debriefing page)
+   ==========================================================================
+   */
 
     // Hitta feedback-formuläret via dess ID
     const debriefingForm = document.getElementById('debriefingForm');
 
     // Om formuläret finns på den aktuella sidan...
     if (debriefingForm) {
-        
+
         // ...lägg på en "lyssnare" som kör kod när man försöker skicka det
         debriefingForm.addEventListener('submit', (event) => {
-            
+
             // Stoppa webbläsarens standardbeteende
-            event.preventDefault(); 
-            
+            event.preventDefault();
+
             console.log('Feedback-formulär skickat (via JS)'); // För felsökning
 
             // Hitta textrutorna
@@ -226,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // kanske inaktivera knappen.
 
             // Exempelstruktur:
-            
+
             // Inaktivera knappen direkt för att förhindra dubbelklick
             /*if (submitButton) {
                 submitButton.disabled = true;
@@ -271,18 +253,18 @@ document.addEventListener('DOMContentLoaded', () => {
             */
 
             // Tillfällig kod för test (ta bort när fetch fungerar)
-            alert('Feedback skickad (simulerat): ' + JSON.stringify(feedbackData)); 
+            alert('Feedback skickad (simulerat): ' + JSON.stringify(feedbackData));
             if (submitButton) {
-                 submitButton.disabled = true;
-                 submitButton.textContent = 'Tack för din feedback!';
+                submitButton.disabled = true;
+                submitButton.textContent = 'Tack för din feedback!';
             }
-            
+
 
         }); // Slut på submit-lyssnaren
     } // Slut på if (om formuläret finns)
-   /*
-    ==========================================================================
-    Slut på koden som körs när sidan laddats
-    ==========================================================================
-    */
+    /*
+     ==========================================================================
+     Slut på koden som körs när sidan laddats
+     ==========================================================================
+     */
 }); 
