@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /*
     ==========================================================================
     Kod för att använda nudge-knapparna (förslagsknapparna) till sin text (experiment page)
+     samt interaktion med "nudge"-knappar
     ==========================================================================
     */
     
