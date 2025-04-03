@@ -267,7 +267,7 @@ section {
 
 /* --- Beskrivningstext --- */
 .description {
-  font-size: 1rem; /* 16px */
+  font-size: 0.9375rem; /* 15px */
   color: #555;
   line-height: 1.5;
   margin-bottom: 1.5rem; /* 24px */
@@ -278,8 +278,7 @@ section {
   font-size: 0.9375rem; /* 15px */
   color: #555;
   text-align: center;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem; /* 24px */
 }
 
 /* ==========================================================================
@@ -367,10 +366,7 @@ section {
 /* --- Questionnaire Page --- */
 
 .questionnaire-container h1 {
-  font-size: 1.625rem; /* 26px */
-  font-weight: 700;
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .question-group {
@@ -603,10 +599,7 @@ hr.separator {
 /* --- Debriefing Page --- */
 
 .debriefing-container h1 {
-  font-size: 1.75rem; /* 28px */
-  font-weight: 700;
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 .debriefing-container section {
