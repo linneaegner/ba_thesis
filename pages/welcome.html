@@ -42,16 +42,16 @@
       </section>
 
       <div class="consent">
-        <input type="checkbox" id="consent" name="consent" />
+        <input type="checkbox" id="consent" name="consent" required />
         <label for="consent"
           >Jag förstår och godkänner att vara med i denna studie. Jag är minst
           18 år och har läst och förstått den givna informationen.</label
         >
       </div>
 
-      <a href="questionnaire.html" class="btn-link">
-        <button class="btn next-btn">Börja studien</button>
-      </a>
+      <button class="btn next-btn" id="startStudyButton" type="button" disabled>
+        Börja studien
+      </button>
 
       <footer class="footer">
         <button class="btn end-btn">Avsluta studien</button>

@@ -4,6 +4,30 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const consentCheckbox = document.getElementById('consent');
+    const startStudyButton = document.getElementById('startStudyButton');
+
+    // Säkerhetskoll: Kör bara koden nedanför OM både kryssrutan och knappen hittades på sidan.
+    if (consentCheckbox && startStudyButton) {
+        startStudyButton.disabled = !consentCheckbox.checked;
+
+        // Lägg till en "lyssnare" som reagerar NÄR kryssrutan ÄNDRAS (bockas i/ur)
+        consentCheckbox.addEventListener('change', () => {
+            // Uppdatera knappens status IGEN, precis som vid sidladdning.
+            startStudyButton.disabled = !consentCheckbox.checked;
+        });
+
+        // Lägg till en "lyssnare" som reagerar NÄR någon KLICKAR på knappen
+        startStudyButton.addEventListener('click', () => {
+            // Agera BARA om rutan faktiskt är ibockad
+            if (consentCheckbox.checked) {
+                // Skicka användaren till nästa sida (enkäten)
+                window.location.href = 'questionnaire.html';
+            }
+        });
+
+    } // Slut på if-satsen (om elementen hittades)
+
 
     const questionnaireForm = document.getElementById('questionnaireForm');
     if (questionnaireForm) {
