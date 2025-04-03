@@ -13,7 +13,6 @@
   <body>
     <div class="page-container debriefing-container">
       <h1>Tack för ditt deltagande!</h1>
-
       <p class="intro-text">
         Dina svar är viktiga för att vi ska kunna förstå hur människor
         interagerar online.
@@ -54,46 +53,43 @@
         </p>
       </section>
 
-
-    </section> 
-
-    <section class="feedback-section"> 
+      <section class="feedback-section">
         <h2>Frivillig feedback om experimentet</h2>
-  
-        <form id="debriefingForm" action="/save-feedback" method="post"> 
-  
-            <fieldset class="question-group">
-              <legend class="question-label" for="interesting_observations">
-                Noterade du något särskilt intressant under experimentet som du vill dela med dig av?
-              </legend>
-              <textarea
-                id="interesting_observations"
-                name="interesting_observations"
-                rows="3"
-                placeholder="Dina observationer..."
-              ></textarea>
-            </fieldset>
-  
-            <fieldset class="question-group">
-              <legend class="question-label" for="technical_issues">
-                Upplevede du några tekniska problem eller avbrott under experimentet?
-              </legend>
-              <textarea
-                id="technical_issues"
-                name="technical_issues"
-                rows="3"
-                placeholder="Beskriv eventuella problem..."
-              ></textarea>
-            </fieldset>
 
-            <div class="submit-container">
-                <button type="submit" class="btn feedback-btn">
-                    Skicka feedback & Avsluta
-                </button>
-              </div>
-            </form>
-    </section>
-      
+        <form id="debriefingForm" action="/save-feedback" method="post">
+          <fieldset class="question-group">
+            <legend class="question-label" for="interesting_observations">
+              Noterade du något särskilt intressant under experimentet som du
+              vill dela med dig av?
+            </legend>
+            <textarea
+              id="interesting_observations"
+              name="interesting_observations"
+              rows="3"
+              placeholder="Dina observationer..."
+            ></textarea>
+          </fieldset>
+
+          <fieldset class="question-group">
+            <legend class="question-label" for="technical_issues">
+              Upplevede du några tekniska problem eller avbrott under
+              experimentet?
+            </legend>
+            <textarea
+              id="technical_issues"
+              name="technical_issues"
+              rows="3"
+              placeholder="Beskriv eventuella problem..."
+            ></textarea>
+          </fieldset>
+
+          <div class="submit-container">
+            <button type="submit" class="btn feedback-btn">
+              Skicka feedback & Avsluta
+            </button>
+          </div>
+        </form>
+      </section>
     </div>
     <script src="../script/main.js"></script>
   </body>
