@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 breathingSection.style.display = "none";
                 commentBox.style.display = "block";
-            }, 10000); // 10 sekunder
+            }, 5000); // Skall ändras till 15 sekunder senare
         });
     } // *** SLUT PÅ IF-SATSEN ***
 
