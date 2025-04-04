@@ -6,8 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const consentCheckbox = document.getElementById('consent');
     const startStudyButton = document.getElementById('startStudyButton');
-
-    // Säkerhetskoll: Kör bara koden nedanför OM både kryssrutan och knappen hittades på sidan.
     if (consentCheckbox && startStudyButton) {
         startStudyButton.disabled = !consentCheckbox.checked;
 
@@ -74,19 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const breathingSection = document.getElementById("breathingExercise");
     const commentBox = document.querySelector(".comment-box");
     const doneReadingBtn = document.getElementById("doneReadingBtn");
+    if (breathingSection && commentBox && doneReadingBtn) {
+        // När användaren klickar på "Jag har läst klart"
+        doneReadingBtn.addEventListener("click", function () {
+            // Visa breathing exercise och dölja knappen
+            breathingSection.style.display = "block";
+            doneReadingBtn.style.display = "none";
 
-    // När användaren klickar på "Jag har läst klart"
-    doneReadingBtn.addEventListener("click", function () {
-        // Visa breathing exercise och dölja knappen
-        breathingSection.style.display = "block";
-        doneReadingBtn.style.display = "none";
-
-        // Starta nedräkningen för att visa kommentar-boxen efter 30 sekunder
-        setTimeout(() => {
-            breathingSection.style.display = "none";
-            commentBox.style.display = "block";
-        }, 10000); // 30 sekunder (30000 ms)
-    });
+            // Starta nedräkningen för att visa kommentar-boxen
+            setTimeout(() => {
+                breathingSection.style.display = "none";
+                commentBox.style.display = "block";
+            }, 10000); // 10 sekunder
+        });
+    } // *** SLUT PÅ IF-SATSEN ***
 
 
     const commentTextareaNudge = document.getElementById('commentTextarea');
