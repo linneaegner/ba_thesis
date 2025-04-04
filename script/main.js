@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 */
                 await new Promise(resolve => setTimeout(resolve, 500)); // Simulering
 
-                window.location.href = 'experiment1.html'; // Anpassa sökväg!
+                window.location.href = 'experiment2.html'; // Anpassa sökväg!
 
             } catch (error) {
                 console.error('Fel vid sändning av enkät:', error);
