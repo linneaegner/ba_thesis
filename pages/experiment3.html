@@ -232,13 +232,23 @@
         </div>
       </section>
 
-      <section id="breathingDelay" class="breathing-container">
+      <section class="reading-done submit-container">
+        <button id="doneReadingBtn" class="btn done-reading-btn">
+          Jag har läst klart artikeln och kommentarerna
+        </button>
+      </section>
+
+      <section
+        id="breathingExercise"
+        class="breathingSection submit-container"
+        style="display: none"
+      >
         <h2>Ta ett ögonblick att andas</h2>
-        <p>Fokusera på din andning i 15 sekunder innan du kommenterar.</p>
+        <p>Fokusera på din andning i 30 sekunder innan du kommenterar.</p>
         <div class="breathing-animation"></div>
       </section>
 
-      <section class="comment-box" style="display: none;">
+      <section class="comment-box" style="display: none">
         <form id="commentForm" action="/save-comment" method="post">
           <h2>
             Skriv en kommentar där du delar med dig av dina tankar kring

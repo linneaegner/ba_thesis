@@ -71,12 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const commentBox = document.querySelector('.comment-box');
-    const delaySection = document.getElementById('breathingDelay');
-    setTimeout(() => {
-      delaySection.style.display = 'none';
-      commentBox.style.display = 'block';
-    }, 15000); // 15 seconds delay
+    const breathingSection = document.getElementById("breathingExercise");
+    const commentBox = document.querySelector(".comment-box");
+    const doneReadingBtn = document.getElementById("doneReadingBtn");
+
+    // När användaren klickar på "Jag har läst klart"
+    doneReadingBtn.addEventListener("click", function () {
+        // Visa breathing exercise och dölja knappen
+        breathingSection.style.display = "block";
+        doneReadingBtn.style.display = "none";
+
+        // Starta nedräkningen för att visa kommentar-boxen efter 30 sekunder
+        setTimeout(() => {
+            breathingSection.style.display = "none";
+            commentBox.style.display = "block";
+        }, 30000); // 30 sekunder (30000 ms)
+    });
+
 
     const commentTextareaNudge = document.getElementById('commentTextarea');
     const nudgeButtons = document.querySelectorAll('.nudge-btn');
