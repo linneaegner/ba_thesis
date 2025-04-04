@@ -71,6 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const commentBox = document.querySelector('.comment-box');
+    const delaySection = document.getElementById('breathingDelay');
+    setTimeout(() => {
+      delaySection.style.display = 'none';
+      commentBox.style.display = 'block';
+    }, 15000); // 15 seconds delay
+
     const commentTextareaNudge = document.getElementById('commentTextarea');
     const nudgeButtons = document.querySelectorAll('.nudge-btn');
     if (commentTextareaNudge && nudgeButtons.length > 0) {
