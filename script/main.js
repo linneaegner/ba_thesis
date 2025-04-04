@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 */
                 await new Promise(resolve => setTimeout(resolve, 500)); // Simulering
 
-                window.location.href = 'experiment3.html'; // Anpassa sökväg!
+                window.location.href = 'experiment4.html'; // Anpassa sökväg!
 
             } catch (error) {
                 console.error('Fel vid sändning av enkät:', error);
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             breathingSection.style.display = "none";
             commentBox.style.display = "block";
-        }, 30000); // 30 sekunder (30000 ms)
+        }, 10000); // 30 sekunder (30000 ms)
     });
 
 
