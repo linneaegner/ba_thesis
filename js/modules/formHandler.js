@@ -1,3 +1,6 @@
+import { getRandomExperiment } from './mathUtils.js';
+
+
 export function initFormHandlers() {
     handleQuestionnaireForm();
     handleCommentForm();
@@ -23,7 +26,8 @@ function handleQuestionnaireForm() {
 
         try {
             await new Promise(resolve => setTimeout(resolve, 500));
-            window.location.href = 'experiment4.html';
+            const experimentPage = getRandomExperiment();
+            window.location.href = experimentPage;
         } catch (error) {
             console.error('Fel vid sändning av enkät:', error);
             if (submitButton) {
