@@ -1,7 +1,4 @@
-/*
- * @fileoverview Hanterar formulär på enkät-, experiment- och debriefingsidorna.
- * Fokuserar på att samla in data med FormData och logga den insamlade datan.
- */
+// Handles form logic
 
 document.addEventListener('DOMContentLoaded', () => {
     const consentCheckbox = document.getElementById('consent');

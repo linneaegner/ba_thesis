@@ -262,7 +262,6 @@ section {
   border-top: 1px solid #eee;
   padding-top: 1.25rem; /* ca 20px */
   text-align: center;
-  color: #666;
 }
 
 /* --- Beskrivningstext --- */
@@ -593,7 +592,6 @@ hr.separator {
 .comment-box .next-btn {
   /* Återanvänder .next-btn klassen här nu */
   width: 100%; /* Behåller full bredd inuti boxen */
-  padding: 10px; /* Justerar padding */
 }
 
 /* --- Debriefing Page --- */
