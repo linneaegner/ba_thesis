@@ -26,8 +26,9 @@ function handleQuestionnaireForm() {
 
         try {
             await new Promise(resolve => setTimeout(resolve, 500));
-            const experimentPage = getRandomExperiment();
-            window.location.href = experimentPage;
+            //const experimentPage = getRandomExperiment();
+            //window.location.href = experimentPage;
+            window.location.href = 'experiment4.html';
         } catch (error) {
             console.error('Fel vid sändning av enkät:', error);
             if (submitButton) {
