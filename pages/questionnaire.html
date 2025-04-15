@@ -74,121 +74,318 @@
 
         <fieldset class="question-group">
           <legend class="question-label">
-            3. Var står du i frågan när det gäller klimatförändringar?
+            3. Vilken är din generella inställning till samhällets nuvarande
+            nivåer av köttkonsumtion och dess effekter (t.ex. miljö, hälsa)?
           </legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="climate_very_concerned"
-              name="climate_stance"
+              id="consumption_stance_very_concerned"
+              name="consumption_stance"
               value="very_concerned"
               required
             />
-            <label for="climate_very_concerned">Mycket bekymrad</label>
+            <label for="consumption_stance_very_concerned"
+              >Mycket bekymrad</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="climate_somewhat_concerned"
-              name="climate_stance"
+              id="consumption_stance_somewhat_concerned"
+              name="consumption_stance"
               value="somewhat_concerned"
             />
-            <label for="climate_somewhat_concerned">Något bekymrad</label>
+            <label for="consumption_stance_somewhat_concerned"
+              >Något bekymrad</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="climate_neutral"
-              name="climate_stance"
+              id="consumption_stance_neutral"
+              name="consumption_stance"
               value="neutral"
             />
-            <label for="climate_neutral">Neutral</label>
+            <label for="consumption_stance_neutral"
+              >Neutral / Ingen stark åsikt</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="climate_somewhat_skeptical"
-              name="climate_stance"
-              value="somewhat_skeptical"
+              id="consumption_stance_not_concerned"
+              name="consumption_stance"
+              value="not_concerned"
             />
-            <label for="climate_somewhat_skeptical">Något skeptisk</label>
+            <label for="consumption_stance_not_concerned"
+              >Inte särskilt bekymrad</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="climate_very_skeptical"
-              name="climate_stance"
-              value="very_skeptical"
+              id="consumption_stance_not_at_all_concerned"
+              name="consumption_stance"
+              value="not_at_all_concerned"
             />
-            <label for="climate_very_skeptical">Mycket skeptisk</label>
+            <label for="consumption_stance_not_at_all_concerned"
+              >Inte alls bekymrad</label
+            >
           </div>
         </fieldset>
 
         <fieldset class="question-group">
           <legend class="question-label">
-            4. Hur ofta engagerar du dig i online-diskussioner eller i
-            kommentarsfält?
+            4. Hur inställd är du generellt till idén om en köttskatt?
           </legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="engagement_daily"
-              name="engagement_frequency"
-              value="daily"
+              id="meat_tax_1"
+              name="meat_tax_attitude"
+              value="1"
               required
             />
-            <label for="engagement_daily">Varje dag</label>
+            <label for="meat_tax_1">1 (Helt emot)</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="engagement_weekly"
-              name="engagement_frequency"
-              value="weekly"
+              id="meat_tax_2"
+              name="meat_tax_attitude"
+              value="2"
             />
-            <label for="engagement_weekly">Varje vecka</label>
+            <label for="meat_tax_2">2</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="engagement_monthly"
-              name="engagement_frequency"
-              value="monthly"
+              id="meat_tax_3"
+              name="meat_tax_attitude"
+              value="3"
             />
-            <label for="engagement_monthly">Varje månad</label>
+            <label for="meat_tax_3">3</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="engagement_rarely"
-              name="engagement_frequency"
+              id="meat_tax_4"
+              name="meat_tax_attitude"
+              value="4"
+            />
+            <label for="meat_tax_4">4 (Varken för eller emot)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="meat_tax_5"
+              name="meat_tax_attitude"
+              value="5"
+            />
+            <label for="meat_tax_5">5</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="meat_tax_6"
+              name="meat_tax_attitude"
+              value="6"
+            />
+            <label for="meat_tax_6">6</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="meat_tax_7"
+              name="meat_tax_attitude"
+              value="7"
+            />
+            <label for="meat_tax_7">7 (Helt för)</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            5. Vilken av följande kosthållningar beskriver dig bäst?
+          </legend>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_daily"
+              name="diet"
+              value="daily_meat"
+              required
+            />
+            <label for="diet_daily">Jag äter kött varje dag</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_weekly"
+              name="diet"
+              value="weekly_meat"
+            />
+            <label for="diet_weekly">Jag äter kött flera gånger i veckan</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_rarely"
+              name="diet"
+              value="rarely_meat"
+            />
+            <label for="diet_rarely"
+              >Jag äter kött mer sällan än en gång i veckan</label
+            >
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_never"
+              name="diet"
+              value="never_meat"
+            />
+            <label for="diet_never">Jag äter aldrig kött</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            6. Hur ofta deltar du i online-diskussioner (t.ex. kommentarsfält,
+            sociala medier)?
+          </legend>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_never"
+              name="discussion_frequency"
+              value="never"
+              required
+            />
+            <label for="discuss_never">Aldrig</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_rarely"
+              name="discussion_frequency"
               value="rarely"
             />
-            <label for="engagement_rarely">Sällan</label>
+            <label for="discuss_rarely">Sällan (någon gång i månaden)</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="engagement_never"
-              name="engagement_frequency"
-              value="never"
+              id="discuss_sometimes"
+              name="discussion_frequency"
+              value="sometimes"
             />
-            <label for="engagement_never">Aldrig</label>
+            <label for="discuss_sometimes">Ibland (någon gång i veckan)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_often"
+              name="discussion_frequency"
+              value="often"
+            />
+            <label for="discuss_often">Ofta (flera gånger i veckan)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_very_often"
+              name="discussion_frequency"
+              value="very_often"
+            />
+            <label for="discuss_very_often">Mycket ofta (dagligen)</label>
           </div>
         </fieldset>
 
         <fieldset class="question-group">
           <legend class="question-label" for="engagement_purpose">
-            5. I vilket syfte engagerar du dig i online-diskussioner eller i
-            kommentarsfält? (Svara "inget" om du aldrig engagerar dig)
+            7. I vilket syfte engagerar du dig oftast i online-diskussioner
+            eller kommentarsfält? (Om du svarade "Aldrig" på förra frågan kan du
+            skriva "Ej relevant")
           </legend>
           <textarea
             id="engagement_purpose"
             name="engagement_purpose"
             rows="3"
-            placeholder="Skriv ditt syfte här..."
+            placeholder="Skriv ditt huvudsakliga syfte här..."
             required
           ></textarea>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            8. Hur benägen är du att uttrycka starka åsikter online?
+          </legend>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_1"
+              name="opinion_tendency"
+              value="1"
+              required
+            />
+            <label for="opinion_tendency_1">1 (Inte alls benägen)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_2"
+              name="opinion_tendency"
+              value="2"
+            />
+            <label for="opinion_tendency_2">2</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_3"
+              name="opinion_tendency"
+              value="3"
+            />
+            <label for="opinion_tendency_3">3</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_4"
+              name="opinion_tendency"
+              value="4"
+            />
+            <label for="opinion_tendency_4">4 (Neutral)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_5"
+              name="opinion_tendency"
+              value="5"
+            />
+            <label for="opinion_tendency_5">5</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_6"
+              name="opinion_tendency"
+              value="6"
+            />
+            <label for="opinion_tendency_6">6</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="opinion_tendency_7"
+              name="opinion_tendency"
+              value="7"
+            />
+            <label for="opinion_tendency_7">7 (Mycket benägen)</label>
+          </div>
         </fieldset>
 
         <div class="submit-container">
