@@ -1,64 +1,129 @@
-// Importera eventuella beroenden om de behövs överst
-import { getRandomExperiment } from './mathUtils.js'; // Behövs bara om den används
+// ./modules/formHandler.js (Updated with fetch)
 
-// --- Befintlig funktion för enkätformulär ---
+// Import needed dependencies
+import { getRandomExperiment } from './mathUtils.js';
+
+/**
+ * Retrieves the participant ID from localStorage.
+ * Shows an alert and returns null if not found.
+ * @returns {string|null} The participant ID or null.
+ */
+function getParticipantId() {
+    const id = localStorage.getItem('participantId');
+    if (!id) {
+        console.error("Participant ID not found in localStorage!");
+        alert('Ett kritiskt fel uppstod: Deltagar-ID saknas. Kan inte fortsätta. Prova att gå tillbaka till startsidan.');
+    }
+    return id;
+}
+
+// --- Updated function for questionnaire form ---
 function handleQuestionnaireForm() {
     const form = document.getElementById('questionnaireForm');
-    if (!form) return; // Avsluta om formuläret inte finns på sidan
+    if (!form) return;
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const submitButton = form.querySelector('button[type="submit"]');
-        const data = Object.fromEntries(new FormData(form).entries());
+        const formData = Object.fromEntries(new FormData(form).entries());
 
-        console.log('Questionnaire data collected:', data);
-        console.log('Full questionnaire data as string:', JSON.stringify(data, null, 2));
+        const participantId = getParticipantId();
+        if (!participantId) return; // Stop if ID is missing
+
+        console.log('Questionnaire data collected:', formData);
 
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.textContent = 'Sparar...';
         }
+
         try {
-            await new Promise(resolve => setTimeout(resolve, 500)); // Simulering
-            const experimentPage = getRandomExperiment(); // Om du vill randomisera
+            // *** Replace simulation with fetch ***
+            const response = await fetch('/api/submit-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    participantId: participantId,
+                    formType: 'questionnaire',
+                    data: formData
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+            }
+
+            console.log("Questionnaire data submitted successfully.");
+            // On success, proceed to experiment
+            const experimentPage = getRandomExperiment();
             window.location.href = experimentPage;
-            //window.location.href = 'experiment4.html'; // Gå till experimentet
+
         } catch (error) {
             console.error('Fel vid sändning av enkät:', error);
+             alert('Kunde inte spara enkätsvaren. Kontrollera din anslutning och försök igen.');
             if (submitButton) {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Försök igen';
+                submitButton.textContent = 'Försök igen'; // Or original text
             }
         }
     });
 }
 
-// --- Befintlig funktion för kommentarsformulär ---
+// --- Updated function for comment form ---
 function handleCommentForm() {
     const form = document.getElementById('commentForm');
-    if (!form) return; // Avsluta om formuläret inte finns på sidan
+    if (!form) return;
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
         const submitButton = form.querySelector('button[type="submit"]');
-        const data = Object.fromEntries(new FormData(form).entries());
+        const formData = Object.fromEntries(new FormData(form).entries());
 
-        console.log('Comment data collected:', data);
-        const comment = data['comment_text']?.trim();
+        const participantId = getParticipantId();
+        if (!participantId) return; // Stop if ID is missing
+
+        console.log('Comment data collected:', formData);
+        const comment = formData['comment_text']?.trim();
         if (!comment) {
+            alert('Kommentaren får inte vara tom.');
             console.log('Tom kommentar, skickar inte.');
             return; // Avbryt om kommentaren är tom
         }
 
+        // Add experiment identifier
+        const pageFilename = window.location.pathname.split('/').pop();
+        formData.experimentVersion = pageFilename || 'unknown';
+
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.textContent = 'Skickar...';
         }
+
         try {
-            await new Promise(resolve => setTimeout(resolve, 500)); // Simulering
-            window.location.href = 'debriefing.html'; // Gå till debriefing
+             // *** Replace simulation with fetch ***
+             const response = await fetch('/api/submit-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    participantId: participantId,
+                    formType: 'comment', // Changed formType
+                    data: formData
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+            }
+
+            console.log("Comment data submitted successfully.");
+            // On success, proceed to debriefing
+            window.location.href = 'debriefing.html';
+
         } catch (error) {
             console.error('Fel vid sändning av kommentar:', error);
+            alert('Kunde inte skicka kommentaren. Kontrollera din anslutning och försök igen.');
             if (submitButton) {
                 submitButton.disabled = false;
                 submitButton.textContent = 'Försök skicka igen';
@@ -67,31 +132,57 @@ function handleCommentForm() {
     });
 }
 
-// --- Befintlig funktion för feedback-formulär (debriefing) ---
+// --- Updated function for feedback form (debriefing) ---
 function handleDebriefingForm() {
     const form = document.getElementById('debriefingForm');
-    if (!form) return; // Avsluta om formuläret inte finns på sidan
+    if (!form) return;
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const submitButton = form.querySelector('.feedback-btn'); // Anpassa selektor vid behov
-        const data = Object.fromEntries(new FormData(form).entries());
+        const submitButton = form.querySelector('.feedback-btn'); // Assuming .feedback-btn selector is correct
+        const formData = Object.fromEntries(new FormData(form).entries());
 
-        console.log('Feedback data collected:', data);
+        const participantId = getParticipantId();
+        if (!participantId) return; // Stop if ID is missing
+
+        console.log('Feedback data collected:', formData);
 
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.textContent = 'Skickar...';
         }
+
         try {
-            await new Promise(resolve => setTimeout(resolve, 500)); // Simulering
-            console.log('Simulated feedback submission successful.');
+            // *** Replace simulation with fetch ***
+            const response = await fetch('/api/submit-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    participantId: participantId,
+                    formType: 'feedback', // Changed formType
+                    data: formData
+                })
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+            }
+
+            console.log('Feedback submitted successfully.');
+             alert('Tack! Din feedback har skickats.');
             if (submitButton) {
                 submitButton.textContent = 'Tack för din feedback!';
-                // Knappen förblir inaktiverad
+                // Keep button disabled
             }
+             // Optionally disable delete button
+             const deleteBtn = document.getElementById('deleteDataBtn');
+             if(deleteBtn) deleteBtn.disabled = true;
+
+
         } catch (error) {
             console.error('Fel vid sändning av feedback:', error);
+            alert('Kunde inte skicka feedback. Kontrollera din anslutning och försök igen.');
             if (submitButton) {
                 submitButton.disabled = false;
                 submitButton.textContent = 'Försök skicka igen';
@@ -100,83 +191,87 @@ function handleDebriefingForm() {
     });
 }
 
-// ===========================================================
-// === NY FUNKTION FÖR HANTERING AV RADERINGSKNAPPEN ===
-// ===========================================================
+// --- Updated function for delete button ---
 function handleDeleteDataButton() {
-    // Hitta elementen specifika för raderingsfunktionen
     const deleteDataButton = document.getElementById('deleteDataBtn');
     const deleteConfirmMsgElement = document.getElementById('deleteConfirmationMsg');
-    const feedbackFormElement = document.getElementById('debriefingForm'); // Behövs för att inaktivera feedback-knapp
+    const feedbackFormElement = document.getElementById('debriefingForm');
 
-    // Avsluta direkt om raderingsknappen inte finns (vi är inte på rätt sida)
     if (!deleteDataButton) return;
 
-    // Varning om de andra elementen mot förmodan saknas (men fortsätt om knappen finns)
-    if (!deleteConfirmMsgElement || !feedbackFormElement) {
-        console.warn("Delete button handler: Confirmation element or feedback form not found. UI might be incomplete.");
-    }
+    if (!deleteConfirmMsgElement) console.warn("Delete confirmation message element not found.");
+    if (!feedbackFormElement) console.warn("Feedback form element not found for disabling.");
 
-    // Lägg till klick-lyssnare på raderingsknappen
     deleteDataButton.addEventListener('click', async () => {
-        // Steg 1: Bekräfta med användaren
         if (confirm('Är du säker på att du vill radera alla dina svar från denna studie? Detta kan inte ångras.')) {
 
-            // Steg 2: Uppdatera UI - Inaktivera knappar
+            const participantId = getParticipantId();
+            if (!participantId) return; // Stop if ID missing
+
+            // --- Update UI ---
             deleteDataButton.disabled = true;
             deleteDataButton.textContent = 'Raderar data...';
-            // Försök bara inaktivera feedback-knappen om formuläret finns
             if (feedbackFormElement) {
-                const feedbackSubmitButton = feedbackFormElement.querySelector('button[type="submit"]'); // Eller '.feedback-btn'
+                const feedbackSubmitButton = feedbackFormElement.querySelector('.feedback-btn');
                 if (feedbackSubmitButton) {
                     feedbackSubmitButton.disabled = true;
                     feedbackSubmitButton.title = 'Du har begärt att dina data ska raderas.';
                 }
             }
-            // Dölj ev. gammalt meddelande (om elementet finns)
             if (deleteConfirmMsgElement) {
                 deleteConfirmMsgElement.style.display = 'none';
                 deleteConfirmMsgElement.textContent = '';
             }
 
-            // Steg 3: SIMULERA radering
+            // --- Make API Call (Replace Simulation) ---
             try {
-                console.log('Simulerar radering av data...');
-                await new Promise(resolve => setTimeout(resolve, 800)); // Simulera väntetid
-                console.log('Simulerad radering av data klar.');
+                console.log(`Requesting data deletion for participant ${participantId}...`);
+                // *** Replace simulation with fetch ***
+                const response = await fetch('/api/delete-data', { // Different API endpoint
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ participantId: participantId })
+                });
 
-                // Steg 4: Uppdatera UI vid lyckad simulering
-                deleteDataButton.textContent = 'Data har raderats'; // Knappen förblir inaktiv
+                if (!response.ok) {
+                     const errorText = await response.text();
+                     throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+                }
+
+                console.log('Data deletion request successful.');
+
+                // --- Update UI on Success ---
+                deleteDataButton.textContent = 'Data har raderats'; // Keep disabled
                 if (deleteConfirmMsgElement) {
-                    deleteConfirmMsgElement.textContent = 'Dina svar har markerats för radering (simulerat). Du kan nu stänga webbläsarfönstret.';
-                    deleteConfirmMsgElement.style.display = 'block'; // Visa bekräftelse
+                    deleteConfirmMsgElement.textContent = 'Dina svar har markerats för radering. Du kan nu stänga webbläsarfönstret.';
+                    deleteConfirmMsgElement.style.display = 'block';
+                    deleteConfirmMsgElement.className = 'confirmation-message success';
                 }
 
             } catch (error) {
-                // Steg 5: Hantera fel vid simulering (eller senare, vid riktigt API-anrop)
-                console.error('Fel vid (simulerad) radering av data:', error);
-                deleteDataButton.textContent = 'Fel vid radering'; // Behåll inaktiv
+                console.error('Fel vid radering av data:', error);
+                 alert('Ett fel uppstod vid radering. Kontakta försöksledaren.');
+
+                 // --- Update UI on Error ---
+                 deleteDataButton.textContent = 'Fel vid radering';
+                 deleteDataButton.title = 'Försök att kontakta försöksledaren manuellt.';
+
                 if (deleteConfirmMsgElement) {
                     deleteConfirmMsgElement.textContent = 'Ett fel uppstod när dina data skulle raderas. Vänligen kontakta försöksledaren via mail för att säkerställa att dina data tas bort.';
-                    deleteConfirmMsgElement.style.display = 'block'; // Visa felmeddelande
+                    deleteConfirmMsgElement.style.display = 'block';
+                    deleteConfirmMsgElement.className = 'confirmation-message error';
                 }
             }
         } else {
-            // Användaren klickade "Avbryt"
             console.log('Radering av data avbröts av användaren.');
         }
-    }); // Slut på addEventListener
+    });
 }
-// ===========================================================
-// === SLUT PÅ NY FUNKTION ===
-// ===========================================================
 
-
-// --- Exporterad funktion som initierar alla formulärhanterare ---
-// Uppdaterad att även inkludera anrop till den nya funktionen
+// --- Exported init function (no changes needed here) ---
 export function initFormHandlers() {
     handleQuestionnaireForm();
     handleCommentForm();
     handleDebriefingForm();
-    handleDeleteDataButton(); // <<< Lägg till anropet här
+    handleDeleteDataButton();
 }

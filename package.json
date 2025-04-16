@@ -1,0 +1,26 @@
+{
+  "name": "ba_thesis",
+  "version": "1.0.0",
+  "description": "subject: hci-online-communication-cognitive-science",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linneaegner/hci-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linneaegner/hci-project/issues"
+  },
+  "homepage": "https://github.com/linneaegner/hci-project#readme",
+  "dependencies": {
+    "@prisma/client": "^6.6.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.6.0"
+  }
+}

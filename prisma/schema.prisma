@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  // Optionally add binaryTargets if needed for specific deployment environments,
+  // but Vercel often handles this well automatically.
+  // binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgresql" // Matches your init command
+  url      = env("DATABASE_URL") // Uses the connection string from .env
+}
+
+// Define the data model for participants
+model Participant {
+  // The unique ID generated on the frontend (e.g., P_2024_04_16_XYZ123)
+  // We'll use this as the primary key (@id)
+  id            String    @id
+
+  // When the participant record was first created (usually on first data submission)
+  createdAt     DateTime  @default(now())
+
+  // Store questionnaire data as a JSON object. Nullable (?) allows participants
+  // to exist before submitting this form (though maybe not needed with upsert).
+  questionnaire Json?
+
+  // Store comment data (text + experiment version) as a JSON object.
+  experiment    Json?
+
+  // Store feedback data as a JSON object.
+  feedback      Json?
+
+  // Timestamp for implementing soft deletes. Nullable means not deleted.
+  deletedAt     DateTime?
+
+  // Optional: Add an index if you frequently query by createdAt or deletedAt
+  // @@index([createdAt])
+  // @@index([deletedAt])
+}
