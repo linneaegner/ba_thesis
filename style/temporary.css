@@ -227,6 +227,28 @@ section {
   cursor: not-allowed;
   color: #666;
 }
+
+/* --- NY STIL FÖR RADERINGSKNAPP --- */
+/* Använd .btn.btn-danger för högre specificitet om det behövs */
+.btn-danger {
+  background-color: #dc3545; /* En vanlig röd färg för "fara" */
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Mörkare röd vid hover */
+  color: white;
+}
+
+/* Om du vill ha en specifik stil för disabled danger-knapp kan du lägga till: */
+/* .btn-danger:disabled { */
+/* background-color: #f8d7da; /* Ljusare röd bakgrund */
+/* color: #721c24; /* Mörkare röd text */
+/* border-color: #f5c6cb; /* Om du använder border */
+/* opacity: 0.65; */
+/* } */
+/* Annars ärver den den vanliga .btn:disabled stilen, vilket oftast är ok. */
+
 /* ==========================================================================
      Specific Component Styles / Overrides
      ========================================================================== */
@@ -626,6 +648,39 @@ hr.separator {
 .debriefing-container .info-section ul li {
   margin-bottom: 0.5rem;
   /* Punkt-stilar hanteras globalt nu */
+}
+
+/* --- UPPDATERADE/NYA REGLER för raderingsknapp UTANFÖR <ul> --- */
+
+/* Eventuell styling för sista listpunkten om du vill särskilja den */
+.info-section ul li.withdrawal-option {
+  /* Du kan fortfarande ha lite extra marginal om du vill */
+  margin-top: 0.5em;
+  /* Eller en border-top om du vill ha en visuell avskiljare före texten */
+  /* border-top: 1px dashed #ccc; */
+  /* padding-top: 0.5em; */
+  /* Lägg till mer bottenmarginal om det behövs mer luft innan knappen */
+  margin-bottom: 0.5em; /* T.ex. för att öka avståndet till knappen nedanför */
+}
+
+/* Styling för delete-containern som nu ligger direkt under <ul> */
+.info-section .delete-container {
+ margin-top: 1.5em; /* VIKTIGT: Avstånd mellan slutet av listan och knappen */
+ /* Lägg till andra stilar om du vill, t.ex. centrering eller linje */
+ text-align: center;
+ /* border-top: 1px solid #eee; */
+ /* padding-top: 1em; */
+  margin-bottom: 1em; /* Lite luft efter knappen/meddelandet */
+}
+
+/* Denna regel för bekräftelsemeddelandet är fortfarande giltig och behövs */
+/* Den stylar #deleteConfirmationMsg oavsett var den ligger, bara ID:t matchar */
+#deleteConfirmationMsg {
+ display: none; /* Dold som standard */
+ margin-top: 0.75em;
+ font-style: italic;
+ color: #555;
+ padding: 0.5em 0;
 }
 
 .contact-section {
