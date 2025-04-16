@@ -12,7 +12,7 @@ function handleQuestionnaireForm() {
         const data = Object.fromEntries(new FormData(form).entries());
 
         console.log('Questionnaire data collected:', data);
-        // console.log('Full questionnaire data as string:', JSON.stringify(data, null, 2));
+        console.log('Full questionnaire data as string:', JSON.stringify(data, null, 2));
 
         if (submitButton) {
             submitButton.disabled = true;
