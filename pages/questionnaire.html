@@ -18,7 +18,6 @@
         dig själv och dina vanor online. Dina svar är anonyma och hjälper oss
         att förstå våra deltagare och resultaten bättre.
       </p>
-
       <form id="questionnaireForm" action="/save-questionnaire" method="post">
         <fieldset class="question-group">
           <legend class="question-label">1. Hur gammal är du?</legend>
@@ -31,7 +30,14 @@
             max="120"
             placeholder="Ange din ålder här..."
             required
+            aria-labelledby="question-label-age"
           />
+          <span
+            id="question-label-age"
+            class="question-label"
+            style="display: none"
+            >Hur gammal är du?</span
+          >
         </fieldset>
 
         <fieldset class="question-group">
@@ -74,134 +80,86 @@
 
         <fieldset class="question-group">
           <legend class="question-label">
-            3. Vilken är din generella inställning till samhällets nuvarande
-            nivåer av köttkonsumtion och dess effekter (t.ex. miljö, hälsa)?
+            3. Hur oroad är du av köttkonsumtionens effekter (t.ex. miljö och
+            hälsa)?
           </legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="consumption_stance_very_concerned"
-              name="consumption_stance"
-              value="very_concerned"
+              id="concern_0"
+              name="consum_concern"
+              value="0"
               required
             />
-            <label for="consumption_stance_very_concerned"
-              >Mycket bekymrad</label
-            >
+            <label for="concern_0">Inte alls oroad</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="consumption_stance_somewhat_concerned"
-              name="consumption_stance"
-              value="somewhat_concerned"
+              id="concern_1"
+              name="consum_concern"
+              value="1"
             />
-            <label for="consumption_stance_somewhat_concerned"
-              >Något bekymrad</label
-            >
+            <label for="concern_1">Inte särskilt oroad</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="consumption_stance_neutral"
-              name="consumption_stance"
-              value="neutral"
+              id="concern_2"
+              name="consum_concern"
+              value="2"
             />
-            <label for="consumption_stance_neutral"
-              >Neutral / Ingen stark åsikt</label
-            >
+            <label for="concern_2">Neutral</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="consumption_stance_not_concerned"
-              name="consumption_stance"
-              value="not_concerned"
+              id="concern_3"
+              name="consum_concern"
+              value="3"
             />
-            <label for="consumption_stance_not_concerned"
-              >Inte särskilt bekymrad</label
-            >
+            <label for="concern_3">Ganska oroad</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="consumption_stance_not_at_all_concerned"
-              name="consumption_stance"
-              value="not_at_all_concerned"
+              id="concern_4"
+              name="consum_concern"
+              value="4"
             />
-            <label for="consumption_stance_not_at_all_concerned"
-              >Inte alls bekymrad</label
-            >
+            <label for="concern_4">Mycket oroad</label>
           </div>
         </fieldset>
 
         <fieldset class="question-group">
           <legend class="question-label">
-            4. Hur inställd är du generellt till idén om en köttskatt?
+            4. Vad är din inställning till köttskatt?
           </legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="meat_tax_1"
-              name="meat_tax_attitude"
-              value="1"
+              id="tax_0"
+              name="tax_attitude"
+              value="0"
               required
             />
-            <label for="meat_tax_1">1 (Helt emot)</label>
+            <label for="tax_0">Helt emot</label>
           </div>
           <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_2"
-              name="meat_tax_attitude"
-              value="2"
-            />
-            <label for="meat_tax_2">2</label>
+            <input type="radio" id="tax_1" name="tax_attitude" value="1" />
+            <label for="tax_1">Ganska emot</label>
           </div>
           <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_3"
-              name="meat_tax_attitude"
-              value="3"
-            />
-            <label for="meat_tax_3">3</label>
+            <input type="radio" id="tax_2" name="tax_attitude" value="2" />
+            <label for="tax_2">Neutral</label>
           </div>
           <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_4"
-              name="meat_tax_attitude"
-              value="4"
-            />
-            <label for="meat_tax_4">4 (Varken för eller emot)</label>
+            <input type="radio" id="tax_3" name="tax_attitude" value="3" />
+            <label for="tax_3">Ganska för</label>
           </div>
           <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_5"
-              name="meat_tax_attitude"
-              value="5"
-            />
-            <label for="meat_tax_5">5</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_6"
-              name="meat_tax_attitude"
-              value="6"
-            />
-            <label for="meat_tax_6">6</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="meat_tax_7"
-              name="meat_tax_attitude"
-              value="7"
-            />
-            <label for="meat_tax_7">7 (Helt för)</label>
+            <input type="radio" id="tax_4" name="tax_attitude" value="4" />
+            <label for="tax_4">Helt för</label>
           </div>
         </fieldset>
 
@@ -210,185 +168,117 @@
           <div class="radio-option">
             <input
               type="radio"
-              id="diet_never"
+              id="diet_freq_0_never"
               name="diet_frequency"
-              value="never"
+              value="0"
               required
             />
-            <label for="diet_never">Aldrig</label>
+            <label for="diet_freq_0_never">Aldrig</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="diet_rarely"
+              id="diet_freq_1_rarely"
               name="diet_frequency"
-              value="rarely_monthly"
-            />
-            <label for="diet_rarely">Sällan (någon gång i månaden)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_sometimes"
-              name="diet_frequency"
-              value="sometimes_weekly"
-            />
-            <label for="diet_sometimes">Ibland (någon gång i veckan)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_often"
-              name="diet_frequency"
-              value="often_weekly"
-            />
-            <label for="diet_often">Ofta (flera gånger i veckan)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_very_often"
-              name="diet_frequency"
-              value="very_often_daily"
-            />
-            <label for="diet_very_often">Mycket ofta (dagligen)</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="question-group">
-          <legend class="question-label">
-            6. Hur ofta deltar du i online-diskussioner (t.ex. kommentarsfält,
-            sociala medier)?
-          </legend>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="discuss_never"
-              name="discussion_frequency"
-              value="never"
-              required
-            />
-            <label for="discuss_never">Aldrig</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="discuss_rarely"
-              name="discussion_frequency"
-              value="rarely"
-            />
-            <label for="discuss_rarely">Sällan (någon gång i månaden)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="discuss_sometimes"
-              name="discussion_frequency"
-              value="sometimes"
-            />
-            <label for="discuss_sometimes">Ibland (någon gång i veckan)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="discuss_often"
-              name="discussion_frequency"
-              value="often"
-            />
-            <label for="discuss_often">Ofta (flera gånger i veckan)</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="discuss_very_often"
-              name="discussion_frequency"
-              value="very_often"
-            />
-            <label for="discuss_very_often">Mycket ofta (dagligen)</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="question-group">
-          <legend class="question-label" for="engagement_purpose">
-            7. I vilket syfte engagerar du dig oftast i online-diskussioner? (Om
-            du svarade "Aldrig" på förra frågan kan du skriva "Ej relevant")
-          </legend>
-          <textarea
-            id="engagement_purpose"
-            name="engagement_purpose"
-            rows="3"
-            placeholder="Skriv ditt huvudsakliga syfte här..."
-            required
-          ></textarea>
-        </fieldset>
-
-        <fieldset class="question-group">
-          <legend class="question-label">
-            8. Hur benägen är du att uttrycka starka åsikter online?
-          </legend>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="opinion_tendency_1"
-              name="opinion_tendency"
               value="1"
-              required
             />
-            <label for="opinion_tendency_1">1 (Inte alls benägen)</label>
+            <label for="diet_freq_1_rarely"
+              >Sällan (ca 1 gång per månad eller mer sällan)</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_2"
-              name="opinion_tendency"
+              id="diet_freq_2_sometimes"
+              name="diet_frequency"
               value="2"
             />
-            <label for="opinion_tendency_2">2</label>
+            <label for="diet_freq_2_sometimes"
+              >Ibland (ca 1 gång per vecka)</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_3"
-              name="opinion_tendency"
+              id="diet_freq_3_often"
+              name="diet_frequency"
               value="3"
             />
-            <label for="opinion_tendency_3">3</label>
+            <label for="diet_freq_3_often"
+              >Ofta (ca 2-4 gånger per vecka)</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_4"
-              name="opinion_tendency"
+              id="diet_freq_4_veryoften"
+              name="diet_frequency"
               value="4"
             />
-            <label for="opinion_tendency_4">4 (Neutral)</label>
+            <label for="diet_freq_4_veryoften"
+              >Mycket ofta (dagligen eller nästan dagligen)</label
+            >
+          </div>
+        </fieldset>
+
+        <fieldset class="question-group">
+          <legend class="question-label">
+            6. Hur ofta deltar du i online-diskussioner (t.ex. i kommentarsfält,
+            på sociala medier)?
+          </legend>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_freq_0_never"
+              name="discussion_frequency"
+              value="0"
+              required
+            />
+            <label for="discuss_freq_0_never">Aldrig</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_5"
-              name="opinion_tendency"
-              value="5"
+              id="discuss_freq_1_rarely"
+              name="discussion_frequency"
+              value="1"
             />
-            <label for="opinion_tendency_5">5</label>
+            <label for="discuss_freq_1_rarely"
+              >Sällan (ca 1 gång per månad eller mer sällan)</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_6"
-              name="opinion_tendency"
-              value="6"
+              id="discuss_freq_2_sometimes"
+              name="discussion_frequency"
+              value="2"
             />
-            <label for="opinion_tendency_6">6</label>
+            <label for="discuss_freq_2_sometimes"
+              >Ibland (ca 1 gång per vecka)</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="opinion_tendency_7"
-              name="opinion_tendency"
-              value="7"
+              id="discuss_freq_3_often"
+              name="discussion_frequency"
+              value="3"
             />
-            <label for="opinion_tendency_7">7 (Mycket benägen)</label>
+            <label for="discuss_freq_3_often"
+              >Ofta (ca 2-4 gånger per vecka)</label
+            >
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="discuss_freq_4_veryoften"
+              name="discussion_frequency"
+              value="4"
+            />
+            <label for="discuss_freq_4_veryoften"
+              >Mycket ofta (dagligen eller nästan dagligen)</label
+            >
           </div>
         </fieldset>
 
