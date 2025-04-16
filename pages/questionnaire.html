@@ -206,47 +206,52 @@
         </fieldset>
 
         <fieldset class="question-group">
-          <legend class="question-label">
-            5. Vilken av följande kosthållningar beskriver dig bäst?
-          </legend>
+          <legend class="question-label">5. Hur ofta äter du kött?</legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="diet_daily"
-              name="diet"
-              value="daily_meat"
+              id="diet_never"
+              name="diet_frequency"
+              value="never"
               required
             />
-            <label for="diet_daily">Jag äter kött varje dag</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_weekly"
-              name="diet"
-              value="weekly_meat"
-            />
-            <label for="diet_weekly">Jag äter kött flera gånger i veckan</label>
+            <label for="diet_never">Aldrig</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
               id="diet_rarely"
-              name="diet"
-              value="rarely_meat"
+              name="diet_frequency"
+              value="rarely_monthly"
             />
-            <label for="diet_rarely"
-              >Jag äter kött mer sällan än en gång i veckan</label
-            >
+            <label for="diet_rarely">Sällan (någon gång i månaden)</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="diet_never"
-              name="diet"
-              value="never_meat"
+              id="diet_sometimes"
+              name="diet_frequency"
+              value="sometimes_weekly"
             />
-            <label for="diet_never">Jag äter aldrig kött</label>
+            <label for="diet_sometimes">Ibland (någon gång i veckan)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_often"
+              name="diet_frequency"
+              value="often_weekly"
+            />
+            <label for="diet_often">Ofta (flera gånger i veckan)</label>
+          </div>
+          <div class="radio-option">
+            <input
+              type="radio"
+              id="diet_very_often"
+              name="diet_frequency"
+              value="very_often_daily"
+            />
+            <label for="diet_very_often">Mycket ofta (dagligen)</label>
           </div>
         </fieldset>
 
@@ -305,9 +310,8 @@
 
         <fieldset class="question-group">
           <legend class="question-label" for="engagement_purpose">
-            7. I vilket syfte engagerar du dig oftast i online-diskussioner
-            eller kommentarsfält? (Om du svarade "Aldrig" på förra frågan kan du
-            skriva "Ej relevant")
+            7. I vilket syfte engagerar du dig oftast i online-diskussioner? (Om
+            du svarade "Aldrig" på förra frågan kan du skriva "Ej relevant")
           </legend>
           <textarea
             id="engagement_purpose"
