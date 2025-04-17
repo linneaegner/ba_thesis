@@ -25,6 +25,8 @@ export default async function handler(req, res) {
       where: { id: participantId },
       data: {
         deletedAt: new Date(), // Set current timestamp to mark as deleted
+        experiment: {}, // Clear experiment data
+        questionnaire: {}, // Clear questionnaire data
       },
     });
 
