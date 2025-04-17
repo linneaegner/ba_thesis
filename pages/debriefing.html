@@ -56,15 +56,9 @@
           </li>
           <li class="withdrawal-option">
             Om du ångrat dig efter att ha läst mer information om studien så har
-            du nu möjlighet att dra tillbaka ditt deltagande genom att klicka på knappen nedanför.
+            du möjlighet att dra tillbaka ditt deltagande längst ner på sidan
           </li>
         </ul>
-        <div class="delete-container">
-          <button type="button" id="deleteDataBtn" class="btn btn-danger">
-            Radera mina svar & Avsluta
-          </button>
-          <p id="deleteConfirmationMsg"></p>
-        </div>
       </section>
 
       <section class="contact-section">
@@ -112,6 +106,25 @@
             </button>
           </div>
         </form>
+      </section>
+      <hr class="section-divider" />
+      <section class="withdrawal-section">
+        <div class="delete-container">
+          <p class="delete-info-text">
+            Om du önskar dra tillbaka ditt deltagande och radera dina svar från
+            studien kan du göra det här:
+          </p>
+
+          <button
+            type="button"
+            id="deleteDataBtn"
+            class="btn btn-outline-primary"
+          >
+            Radera mina svar & Avsluta
+          </button>
+
+          <p id="deleteConfirmationMsg"></p>
+        </div>
       </section>
     </div>
     <script type="module" src="../js/init.js"></script>

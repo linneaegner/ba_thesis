@@ -64,15 +64,15 @@ li {
 
 /* Gemensam stil för punktlistor (används på welcome & debriefing) */
 .info-section ul li, /* Debriefing */
-  .study-info ul li,   /* Welcome */
-  .important-info ul li /* Welcome */ {
+    .study-info ul li,   /* Welcome */
+    .important-info ul li /* Welcome */ {
   position: relative;
   padding-left: 25px;
 }
 
 .info-section ul li::before, /* Debriefing */
-  .study-info ul li::before,   /* Welcome */
-  .important-info ul li::before /* Welcome */ {
+    .study-info ul li::before,   /* Welcome */
+    .important-info ul li::before /* Welcome */ {
   content: "•";
   color: #003366;
   font-weight: bold;
@@ -130,23 +130,22 @@ fieldset {
 }
 
 legend {
-  padding: 0; /* Nollställ padding */
-  display: block; /* Säkerställ att den beter sig som block */
-  width: 100%; /* Ta full bredd */
+  padding: 0;
+  display: block;
+  width: 100%;
 }
 
 label {
-  font-weight: 400; /* Standardvikt för labels */
+  font-weight: 400;
 }
 
 section {
-  margin-bottom: 1.5rem; /* ca 24px */
-  /* text-align: left; - Tas bort, sätts vid behov */
+  margin-bottom: 1.5rem;
 }
 
 /* ==========================================================================
-     Utility Classes
-     ========================================================================== */
+       Utility Classes
+       ========================================================================== */
 
 .text-center {
   text-align: center;
@@ -170,7 +169,6 @@ section {
   margin-top: 1.5rem;
 }
 
-/* Dölj visuellt men behåll för skärmläsare */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -184,10 +182,9 @@ section {
 }
 
 /* ==========================================================================
-     Base Component Styles
-     ========================================================================== */
+       Base Component Styles
+       ========================================================================== */
 
-/* Base container styles - Lägg till .page-container i HTML */
 .page-container {
   width: 90%;
   margin-left: auto;
@@ -197,227 +194,218 @@ section {
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
-  max-width: 800px; /* Standard max-width, kan överridas */
-  margin-top: 2.5rem; /* LÄGG TILL: Konsekvent marginal uppåt (ca 40px) */
-  margin-bottom: 2.5rem; /* LÄGG TILL: Konsekvent marginal nedåt (ca 40px) */
+  max-width: 800px;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
-/* Base button styles - Lägg till .btn i HTML */
+
 .btn {
-  display: inline-block; /* Standard för knappar */
-  border: none;
+  display: inline-block;
+  border: 1px solid transparent;
   background-color: #003366;
   color: white;
   border-radius: 5px;
-  padding: 12px 25px; /* Standard padding */
-  font-size: 1rem; /* 16px */
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
-  text-decoration: none; /* För <a> taggar stylade som knappar */
+  text-decoration: none;
 }
 
 .btn:hover {
   background-color: #00264d;
+  border-color: #00264d;
 }
 
 .btn:disabled {
   background-color: #cccccc;
+  border-color: #cccccc;
   cursor: not-allowed;
   color: #666;
+  opacity: 0.65;
 }
 
-/* --- NY STIL FÖR RADERINGSKNAPP --- */
-/* Använd .btn.btn-danger för högre specificitet om det behövs */
 .btn-danger {
-  background-color: #dc3545; /* En vanlig röd färg för "fara" */
+  background-color: #dc3545;
+  border-color: #dc3545;
   color: white;
 }
 
 .btn-danger:hover {
-  background-color: #c82333; /* Mörkare röd vid hover */
+  background-color: #c82333;
+  border-color: #bd2130;
   color: white;
 }
 
-/* Om du vill ha en specifik stil för disabled danger-knapp kan du lägga till: */
-/* .btn-danger:disabled { */
-/* background-color: #f8d7da; /* Ljusare röd bakgrund */
-/* color: #721c24; /* Mörkare röd text */
-/* border-color: #f5c6cb; /* Om du använder border */
-/* opacity: 0.65; */
-/* } */
-/* Annars ärver den den vanliga .btn:disabled stilen, vilket oftast är ok. */
+/* --- Stil för OUTLINE-KNAPP (Primärfärg) --- */
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: #003366;
+  color: #003366;
+}
+
+.btn-outline-primary:hover {
+  background-color: rgba(0, 51, 102, 0.05);
+}
+
+.btn-outline-primary:disabled,
+.btn-outline-primary.disabled {
+  background-color: transparent;
+  border-color: #adb5bd;
+  color: #adb5bd;
+  opacity: 0.65;
+}
 
 /* ==========================================================================
-     Specific Component Styles / Overrides
-     ========================================================================== */
+       Specific Component Styles / Overrides
+       ========================================================================== */
 
 /* --- Knappar --- */
 .nudge-btn {
-  /* Används i Experiment */
   background-color: #43709e;
   color: white;
   padding: 8px 12px;
   font-size: 14px;
 }
-
 .nudge-btn:hover {
   background-color: #21578d;
 }
-
 .end-btn {
   background-color: #f1f1f1;
   color: #333;
   padding: 10px 20px;
   margin-top: 15px;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
 }
-
 .end-btn:hover {
   background-color: #ddd;
 }
-/* --- Footer --- */
 
+/* --- Footer --- */
 .footer {
-  margin-top: 2.5rem; /* ca 40px */
+  margin-top: 2.5rem;
   border-top: 1px solid #eee;
-  padding-top: 1.25rem; /* ca 20px */
+  padding-top: 1.25rem;
   text-align: center;
 }
 
 /* --- Beskrivningstext --- */
 .description {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   color: #555;
   line-height: 1.5;
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem;
 }
 
 /* --- Introduktionstext (Questionnaire, Debriefing) --- */
 .intro-text {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   color: #555;
   text-align: center;
-  margin-bottom: 1.5rem; /* 24px */
+  margin-bottom: 1.5rem;
 }
 
 /* ==========================================================================
-     Page Specific Styles
-     ========================================================================== */
+       Page Specific Styles
+       ========================================================================== */
 
 /* --- Index Page --- */
 .index-container {
   max-width: 550px;
   padding: 30px 20px;
   text-align: center;
-  background: none; /* Överrid baskontainer */
-  border: none; /* Överrid baskontainer */
-  box-shadow: none; /* Överrid baskontainer */
+  background: none;
+  border: none;
+  box-shadow: none;
 }
-
 .index-container h1 {
-  font-size: 1.875rem; /* 30px */
+  font-size: 1.875rem;
   margin-bottom: 1rem;
 }
-
 .index-container .description {
-  font-size: 1.0625rem; /* 17px */
+  font-size: 1.0625rem;
   margin-bottom: 2rem;
 }
-
-/* Specifik knappstyling för index */
 .index-container .btn-link {
-  display: inline-block; /* Låt knappens bredd styra */
-  width: auto; /* Återställ width */
-  max-width: none; /* Återställ max-width */
+  display: inline-block;
+  width: auto;
+  max-width: none;
 }
-
 .index-container .next-btn {
   padding: 15px 35px;
-  font-size: 1.0625rem; /* 17px */
-  width: auto; /* Låt innehållet styra bredden */
+  font-size: 1.0625rem;
+  width: auto;
 }
 
 /* --- Welcome Page --- */
 .welcome-container {
   text-align: center;
 }
-
 .welcome-container section {
-  text-align: left; /* Återställ för sektioner inuti */
+  text-align: left;
 }
-
 .consent {
   display: flex;
   align-items: flex-start;
   margin: 25px 0;
   text-align: left;
 }
-
 .consent input {
   margin-right: 10px;
-  margin-top: 3px; /* Justera för linjering med text */
+  margin-top: 3px;
   transform: scale(1.2);
-  flex-shrink: 0; /* Förhindra krympning */
+  flex-shrink: 0;
 }
-
 .consent label {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   line-height: 1.5;
   color: #555;
-  font-weight: 400; /* Återställ från ev. global label-stil */
+  font-weight: 400;
 }
-
 .study-info,
 .important-info {
   background-color: #f8f9fa;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem;
   text-align: left;
 }
-
 .study-info h2,
 .important-info h2 {
   margin-top: 0;
-  margin-bottom: 0.75rem; /* 12px */
+  margin-bottom: 0.75rem;
 }
 
 /* --- Questionnaire Page --- */
-
 .questionnaire-container h1 {
   text-align: center;
 }
-
 .question-group {
   margin: 0 0 2rem 0;
   border-top: 1px solid #eee;
   padding-top: 1.5rem;
 }
-
-/* Label för fråga (legend eller label) */
 .question-label,
 .question-group legend {
   display: block;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
   font-weight: 500;
   color: #333;
   margin-bottom: 0.8rem;
   width: 100%;
 }
-
 .questionnaire-container input[type="number"] {
-  max-width: 200px; /* Begränsa bredden för ålder */
+  max-width: 200px;
 }
-
 .radio-option {
   display: flex;
   align-items: center;
   margin-bottom: 0.8rem;
   cursor: pointer;
 }
-
 .radio-option input[type="radio"] {
   margin-right: 10px;
   flex-shrink: 0;
@@ -431,11 +419,9 @@ section {
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
-
 .radio-option input[type="radio"]:checked {
   border-color: #003366;
 }
-
 .radio-option input[type="radio"]:checked::before {
   content: "";
   display: block;
@@ -448,44 +434,32 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .radio-option label {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   font-weight: 400;
   color: #333;
   flex-grow: 1;
   margin-bottom: 0;
   cursor: pointer;
 }
-
 hr.separator {
   border: none;
   border-top: 1px dashed #ccc;
   margin: 2.5rem 0;
 }
-
-.submit-container {
+.questionnaire-container .submit-container {
   text-align: center;
   margin-top: 3rem;
 }
 
 /* --- Experiment Page --- */
-
 .article-container {
-  /* Behåll eller justera max-width för läsbarhet */
   max-width: 800px;
-
-  /* Lägg till width, margin-left/right för centrering */
-  width: 90%; /* Behåll responsiv bredd */
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-
-  /* Lägg till konsekvent vertikal marginal (samma som .page-container) */
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-
-  /* VIKTIGT: Ingen background-color, box-shadow, border, eller generell padding här */
-  /* padding: 20px;  <-- TA BORT denna om den fanns här specifikt */
 }
 .article-header {
   margin-bottom: 30px;
@@ -493,26 +467,24 @@ hr.separator {
 .article-header h1 {
   font-size: 1.75rem;
   margin-bottom: 10px;
-} /* 28px */
+}
 .article-lead {
   font-size: 1.125rem;
   line-height: 1.4;
   color: #555;
   margin-bottom: 15px;
-} /* 18px */
-
+}
 .article-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   font-size: 0.875rem;
   color: #4f4f4f;
-  margin-bottom: 15px; /* 14px */
+  margin-bottom: 15px;
 }
 .article-meta p {
   margin: 0;
 }
-
 .article-image {
   width: 100%;
   margin-bottom: 20px;
@@ -523,7 +495,6 @@ hr.separator {
   object-fit: cover;
   border-radius: 8px;
 }
-
 .article-content {
   line-height: 1.6;
   color: #333;
@@ -531,32 +502,35 @@ hr.separator {
 }
 .article-content p {
   margin-bottom: 1.25rem;
-} /* 20px */
+}
 .article-content h2 {
   font-size: 1.375rem;
   margin: 30px 0 15px 0;
-} /* 22px */
-
+}
 .comments {
   margin-top: 40px;
   border-top: 1px solid #eee;
   padding-top: 20px;
   margin-bottom: 30px;
 }
-
 .comment-list-wrapper {
-  max-height: 400px; /* Sätt maxhöjd innan scroll visas (justera vid behov) */
-  overflow-y: auto; /* Lägg till vertikal scroll vid behov */
-  padding-right: 10px; /* Lite utrymme så text inte krockar med scrollbar */
-  margin-right: -10px; /* Kompensera för padding så bredden stämmer */
-  border-top: 1px solid #eee; /* Lägg ev. linje här istället för på .comments? */
-  padding-top: 15px; /* Utrymme efter linjen */
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-right: -10px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
 }
 .comments h2 {
   font-size: 1.25rem;
   margin-bottom: 20px;
-} /* 20px */
+}
 
+/* --- NY GENERELL REGEL FÖR SUBMIT-CONTAINER --- */
+.submit-container {
+  text-align: center; /* Centrera innehållet som standard */
+  margin-top: 1.5rem; /* Lägg till en standardmarginal ovanför */
+}
 .comment {
   background-color: #f1f1f1;
   padding: 15px;
@@ -564,16 +538,13 @@ hr.separator {
   border-radius: 5px;
   border-left: 3px solid #003366;
 }
-
 .comment p {
   margin: 5px 0;
 }
 .comment p:first-child {
   color: #666;
   font-size: 0.875rem;
-} /* 14px */
-/* .comment p:last-child { margin-top: 8px; } /* Verkar onödig? */
-
+}
 .comment-box {
   background-color: #f9f9f9;
   padding: 20px;
@@ -584,103 +555,105 @@ hr.separator {
   font-size: 1.25rem;
   margin-top: 0;
   margin-bottom: 10px;
-} /* 20px */
+}
 .comment-box p {
   margin-bottom: 15px;
   color: #555;
 }
-
 .comment-suggestions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
 }
-
-/* Scoped textarea for comment box */
 .comment-box textarea {
   width: 100%;
   height: 80px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  resize: vertical; /* Ändrat från none */
+  resize: vertical;
   margin-top: 10px;
   margin-bottom: 15px;
   font-family: "Inter", Arial, sans-serif;
 }
-
-/* Scoped submit button for comment box */
 .comment-box .next-btn {
-  /* Återanvänder .next-btn klassen här nu */
-  width: 100%; /* Behåller full bredd inuti boxen */
+  width: 100%;
 }
 
 /* --- Debriefing Page --- */
-
 .debriefing-container h1 {
   text-align: center;
 }
-
 .debriefing-container section {
   margin-bottom: 2rem;
 }
-
 .debriefing-container h2 {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
   margin-top: 0px;
   font-weight: 700;
   margin-bottom: 0.8rem;
   padding-bottom: 5px;
   border-bottom: 1px solid #eee;
 }
+.debriefing-container .withdrawal-section h2 {
+  display: none;
+} /* Dölj H2 i sista sektionen */
 
-/* Gäller p och ul i info-sektioner */
 .debriefing-container .info-section p,
 .debriefing-container .info-section ul {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   margin-bottom: 1rem;
   line-height: 1.6;
 }
 .debriefing-container .info-section ul {
-  padding-left: 25px; /* Indrag ärvs inte, sätt här med */
+  padding-left: 25px;
 }
 .debriefing-container .info-section ul li {
   margin-bottom: 0.5rem;
-  /* Punkt-stilar hanteras globalt nu */
 }
-
-/* --- UPPDATERADE/NYA REGLER för raderingsknapp UTANFÖR <ul> --- */
-
-/* Eventuell styling för sista listpunkten om du vill särskilja den */
 .info-section ul li.withdrawal-option {
-  /* Du kan fortfarande ha lite extra marginal om du vill */
   margin-top: 0.5em;
-  /* Eller en border-top om du vill ha en visuell avskiljare före texten */
-  /* border-top: 1px dashed #ccc; */
-  /* padding-top: 0.5em; */
-  /* Lägg till mer bottenmarginal om det behövs mer luft innan knappen */
-  margin-bottom: 0.5em; /* T.ex. för att öka avståndet till knappen nedanför */
+  margin-bottom: 0.5em;
 }
 
-/* Styling för delete-containern som nu ligger direkt under <ul> */
-.info-section .delete-container {
- margin-top: 1.5em; /* VIKTIGT: Avstånd mellan slutet av listan och knappen */
- /* Lägg till andra stilar om du vill, t.ex. centrering eller linje */
- text-align: center;
- /* border-top: 1px solid #eee; */
- /* padding-top: 1em; */
+.delete-info-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  /* Nytt: Säkerställ att texten är centrerad om containern är det */
+  /* Tas bort - låt text-align på containern styra */
+  /* text-align: center; */
+}
+
+/* --- ÄNDRAD STIL för delete-container PÅ DEBRIEFING (centrerad, ingen border-top) --- */
+.debriefing-container .delete-container {
+  margin-top: 1rem; /* Behåll eller justera avstånd uppåt */
+  text-align: center; /* Centrera knappen OCH texten ovanför */
+  padding-top: 0; /* Ta bort padding om ingen border finns */
+  /* border-top: 1px solid #eee; <-- BORTTAGEN */
   margin-bottom: 1em; /* Lite luft efter knappen/meddelandet */
 }
 
-/* Denna regel för bekräftelsemeddelandet är fortfarande giltig och behövs */
-/* Den stylar #deleteConfirmationMsg oavsett var den ligger, bara ID:t matchar */
+/* Bekräftelsemeddelandet (justerad för centrering) */
 #deleteConfirmationMsg {
- display: none; /* Dold som standard */
- margin-top: 0.75em;
- font-style: italic;
- color: #555;
- padding: 0.5em 0;
+  display: none;
+  margin-top: 0.75em;
+  font-style: italic;
+  color: #555;
+  padding: 0.5em 0;
+  text-align: center; /* Centrera texten i meddelandet också */
+}
+
+/* Bekräftelsemeddelande för feedback */
+#feedbackConfirmationMsg {
+  display: none;
+  margin-top: 0.75em;
+  font-style: italic;
+  color: #555;
+  padding: 0.5em 0;
+  text-align: center; /* Centrera denna också */
 }
 
 .contact-section {
@@ -696,7 +669,7 @@ hr.separator {
   margin-bottom: 1rem;
 }
 .contact-section p {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.9375rem;
   line-height: 1.7;
   margin-bottom: 0;
 }
@@ -725,163 +698,148 @@ hr.separator {
 }
 
 .feedback-section {
-  margin-top: 4rem; /* Marginal ovanför sektionen */
-  border-top: 1px solid #eee; /* Linje ovanför */
-  padding-top: 1.5rem; /* Luft efter linjen */
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
 }
-
 .feedback-section h2 {
-  /* Ärver stil från global h2, men tar bort ev. border-bottom här */
   border-bottom: none;
-  margin-top: 0; /* Nollställ topp-marginal om linjen ovanför sköter avståndet */
+  margin-top: 0;
+}
+.feedback-section .question-group {
+  border-top: none;
+  padding-top: 0;
+  margin-bottom: 1.5rem;
 }
 
-.feedback-section .question-group {
-  /* Ta bort topp-bordern om feedback-sektionen redan har en */
-  border-top: none;
-  padding-top: 0; /* Nollställ padding om border är borta */
-  margin-bottom: 1.5rem; /* Lite mindre marginal mellan dessa två frågor? */
+/* --- ÄNDRAD STIL för submit-container PÅ DEBRIEFING (centrerad) --- */
+.debriefing-container .submit-container {
+  margin-top: 1.5rem;
+  text-align: center; /* Centrera feedback-knappen */
+}
+
+/* --- Stil för section-divider (<hr>) --- */
+.section-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 2rem 0; /* Justera marginalen vid behov */
 }
 
 /* ==========================================================================
-     Media Queries (Combined & Scoped)
-     ========================================================================== */
+       Media Queries (Combined & Scoped)
+       ========================================================================== */
 
 @media (max-width: 768px) {
   /* Tablet and smaller */
-  /* Experiment Page adjustments */
   .article-header h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   .article-lead {
     font-size: 1rem;
-  } /* 16px */
+  }
   .article-meta {
     flex-direction: column;
     gap: 5px;
   }
   .article-content h2 {
     font-size: 1.25rem;
-  } /* 20px */
+  }
   .comment-suggestions {
     flex-direction: column;
   }
-  .comment-btn {
+  .comment-box .nudge-btn {
     width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   /* Smaller phone portrait */
-  /* Base container adjustments */
   .page-container {
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  /* Base heading adjustments */
   h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   h2 {
     font-size: 1.125rem;
-  } /* 18px */
+  }
   p,
   li,
   label {
     font-size: 0.875rem;
-  } /* 14px */
-
-  /* Questionnaire adjustments */
+  }
   .questionnaire-container h1 {
     font-size: 1.375rem;
-  } /* 22px */
+  }
   .question-label,
   .question-group legend {
     font-size: 0.9375rem;
-  } /* 15px */
+  }
   .questionnaire-container input[type="text"],
   .questionnaire-container input[type="number"],
   .questionnaire-container textarea,
   .radio-option label {
     font-size: 0.875rem;
-  } /* 14px */
-  .submit-btn {
-    padding: 10px 30px;
-    font-size: 0.9375rem;
-  } /* 15px */
-
-  /* Debriefing adjustments */
+  }
   .debriefing-container h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   .debriefing-container h2 {
     font-size: 1.125rem;
-  } /* 18px */
+  }
   .debriefing-container .info-section p,
   .debriefing-container .info-section ul,
   .contact-section p,
   .contact-section a[href^="mailto:"] {
     font-size: 0.875rem;
-  } /* 14px */
+  }
   .contact-section {
     padding: 20px;
   }
-  .end-btn {
-    padding: 10px 25px;
-    font-size: 0.9375rem;
-  } /* 15px */
+  .delete-info-text {
+    font-size: 0.8125rem;
+  }
 }
 
 @media (max-width: 480px) {
   /* Smallest phones */
   body {
     padding: 10px;
-  } /* Mindre padding runt allt */
-
+  }
   .page-container {
     padding: 15px;
-  } /* Ännu mindre padding inuti containrar */
-
-  /* Index page adjustments */
+  }
   .index-container h1 {
     font-size: 1.625rem;
-  } /* 26px */
+  }
   .index-container .description {
     font-size: 1rem;
-  } /* 16px */
-  .index-container .next-btn {
-    padding: 12px 30px;
-    font-size: 1rem;
-  } /* 16px */
-
-  /* Welcome page adjustments */
+  }
   .welcome-container h1 {
     font-size: 1.5rem;
-  } /* 24px */
+  }
   .welcome-container h2 {
     font-size: 1.125rem;
-  } /* 18px */
+  }
   .welcome-container .description,
   .welcome-container ul li {
     font-size: 0.875rem;
-  } /* 14px */
+  }
   .consent label {
     font-size: 0.8125rem;
-  } /* 13px */
-
-  /* Experiment page adjustments */
-  .article-container {
-    padding: 15px;
   }
+  /* .article-container { } */
   .article-header h1 {
     font-size: 1.375rem;
-  } /* 22px */
+  }
   .comment {
     padding: 10px;
   }
 }
 
+/* Andningsanimation etc lämnas oförändrade */
 .breathing-animation {
   margin: 4rem auto;
   width: 100px;
@@ -901,7 +859,6 @@ hr.separator {
     opacity: 1;
   }
 }
-
 .done-reading-btn {
   padding: 0.9rem 1.1rem;
   background-color: #0077cc;
