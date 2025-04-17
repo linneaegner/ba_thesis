@@ -1,5 +1,5 @@
 // api/submit-data.js
-
+//lägg till timestamp här
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     if (!participantId || !formType || typeof data !== 'object') {
       return res.status(400).json({ error: 'Missing or invalid required fields: participantId, formType, data' });
     }
-
+    data.timestamp = new Date(); // Add timestamp to data
     // Prepare data based on formType - map frontend `data` to the correct schema field
     let dataToStore = {};
     if (formType === 'questionnaire') {
