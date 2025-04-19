@@ -12,7 +12,7 @@ export function initEndStudyButtons() {
     endButtons.forEach(button => {
         button.addEventListener('click', () => {
             // Bekräftelse (valfritt men rekommenderat)
-            const confirmEnd = confirm("Är du säker på att du vill avsluta studien nu? Dina eventuella framsteg för den aktuella delen sparas inte.");
+            const confirmEnd = confirm("Är du säker på att du vill avsluta studien nu?");
             if (confirmEnd) {
                 console.log("Studien avslutas av användaren via generell 'Avsluta studien'-knapp.");
                 // Omdirigera till tacksidan
