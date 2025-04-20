@@ -12,11 +12,11 @@
   </head>
   <body>
     <div class="page-container questionnaire-container">
-      <h1>Snabba frågor</h1>
+      <h1>Frågor</h1>
       <p class="intro-text">
-        Innan studien fortsätter ber vi dig att svara på några korta frågor om
-        dig själv och dina vanor online. Dina svar är anonyma och hjälper oss
-        att förstå våra deltagare och resultaten bättre.
+        Innan studien fortsätter ber vi dig att svara på några korta frågor.
+        Dina svar är anonyma och hjälper oss att förstå våra deltagare och
+        resultaten bättre.
       </p>
       <form id="questionnaireForm" action="/save-questionnaire" method="post">
         <fieldset class="question-group">
@@ -79,55 +79,56 @@
         </fieldset>
 
         <fieldset class="question-group">
-          <legend class="question-label">
-            3. Hur oroad är du av köttkonsumtionens effekter (t.ex. miljö och
-            hälsa)?
-          </legend>
+          <legend class="question-label">3. Hur ofta äter du kött?</legend>
           <div class="radio-option">
             <input
               type="radio"
-              id="concern_0"
-              name="consum_concern"
+              id="diet_freq_0_never"
+              name="diet_frequency"
               value="0"
               required
             />
-            <label for="concern_0">Inte alls oroad</label>
+            <label for="diet_freq_0_never">Aldrig</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="concern_1"
-              name="consum_concern"
+              id="diet_freq_1_rarely"
+              name="diet_frequency"
               value="1"
             />
-            <label for="concern_1">Inte särskilt oroad</label>
+            <label for="diet_freq_1_rarely"
+              >Ca 1 gång per månad eller mer sällan</label
+            >
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="concern_2"
-              name="consum_concern"
+              id="diet_freq_2_sometimes"
+              name="diet_frequency"
               value="2"
             />
-            <label for="concern_2">Neutral</label>
+            <label for="diet_freq_2_sometimes">Ca 1 gång per vecka</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="concern_3"
-              name="consum_concern"
+              id="diet_freq_3_often"
+              name="diet_frequency"
               value="3"
             />
-            <label for="concern_3">Ganska oroad</label>
+            <label for="diet_freq_3_often">Ca 2-4 gånger per vecka</label>
           </div>
           <div class="radio-option">
             <input
               type="radio"
-              id="concern_4"
-              name="consum_concern"
+              id="diet_freq_4_veryoften"
+              name="diet_frequency"
               value="4"
             />
-            <label for="concern_4">Mycket oroad</label>
+            <label for="diet_freq_4_veryoften"
+              >Dagligen eller nästan dagligen</label
+            >
           </div>
         </fieldset>
 
@@ -164,66 +165,8 @@
         </fieldset>
 
         <fieldset class="question-group">
-          <legend class="question-label">5. Hur ofta äter du kött?</legend>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_freq_0_never"
-              name="diet_frequency"
-              value="0"
-              required
-            />
-            <label for="diet_freq_0_never">Aldrig</label>
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_freq_1_rarely"
-              name="diet_frequency"
-              value="1"
-            />
-            <label for="diet_freq_1_rarely"
-              >Sällan (ca 1 gång per månad eller mer sällan)</label
-            >
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_freq_2_sometimes"
-              name="diet_frequency"
-              value="2"
-            />
-            <label for="diet_freq_2_sometimes"
-              >Ibland (ca 1 gång per vecka)</label
-            >
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_freq_3_often"
-              name="diet_frequency"
-              value="3"
-            />
-            <label for="diet_freq_3_often"
-              >Ofta (ca 2-4 gånger per vecka)</label
-            >
-          </div>
-          <div class="radio-option">
-            <input
-              type="radio"
-              id="diet_freq_4_veryoften"
-              name="diet_frequency"
-              value="4"
-            />
-            <label for="diet_freq_4_veryoften"
-              >Mycket ofta (dagligen eller nästan dagligen)</label
-            >
-          </div>
-        </fieldset>
-
-        <fieldset class="question-group">
           <legend class="question-label">
-            6. Hur ofta deltar du i online-diskussioner (t.ex. i kommentarsfält,
+            5. Hur ofta deltar du i online-diskussioner (t.ex. i kommentarsfält,
             på sociala medier)?
           </legend>
           <div class="radio-option">
@@ -244,7 +187,7 @@
               value="1"
             />
             <label for="discuss_freq_1_rarely"
-              >Sällan (ca 1 gång per månad eller mer sällan)</label
+              >Ca 1 gång per månad eller mer sällan</label
             >
           </div>
           <div class="radio-option">
@@ -254,9 +197,7 @@
               name="discussion_frequency"
               value="2"
             />
-            <label for="discuss_freq_2_sometimes"
-              >Ibland (ca 1 gång per vecka)</label
-            >
+            <label for="discuss_freq_2_sometimes">Ca 1 gång per vecka</label>
           </div>
           <div class="radio-option">
             <input
@@ -265,9 +206,7 @@
               name="discussion_frequency"
               value="3"
             />
-            <label for="discuss_freq_3_often"
-              >Ofta (ca 2-4 gånger per vecka)</label
-            >
+            <label for="discuss_freq_3_often">Ca 2-4 gånger per vecka</label>
           </div>
           <div class="radio-option">
             <input
@@ -277,7 +216,7 @@
               value="4"
             />
             <label for="discuss_freq_4_veryoften"
-              >Mycket ofta (dagligen eller nästan dagligen)</label
+              >Dagligen eller nästan dagligen</label
             >
           </div>
         </fieldset>
