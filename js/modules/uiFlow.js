@@ -11,7 +11,7 @@ export function initUIFlow() {
             setTimeout(() => {
                 breathingSection.style.display = "none";
                 commentBox.style.display = "block";
-            }, 15000); // Change to 15000 for 15 seconds
+            }, 10000); // Change to 15000 for 15 seconds
         });
     }
 }
