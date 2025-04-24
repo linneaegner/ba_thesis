@@ -56,9 +56,9 @@ function handleQuestionnaireForm() {
 
             console.log("Questionnaire data submitted successfully.");
             // On success, proceed to experiment
-            //const experimentPage = getRandomExperiment();
-            //window.location.href = experimentPage;
-            window.location.href = 'experiment4.html'; // For testing purposes
+            const experimentPage = getRandomExperiment();
+            window.location.href = experimentPage;
+            //window.location.href = 'experiment4.html'; // For testing purposes
 
 
         } catch (error) {
